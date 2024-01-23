@@ -1,7 +1,8 @@
 import { ReactElement } from "react";
 import profile from "../../assets/profile.jpg";
 import About from "./About";
-import Latest from "./Latest";
+import EpisodeCard from "../list/EpisodeCard";
+import { CURRENT_WEEK } from "../../constants";
 
 const Main = (): ReactElement => (
   <>
@@ -13,7 +14,7 @@ const Main = (): ReactElement => (
       </div>
     </div>
     <About />
-    <Latest />
+    <EpisodeCard week={CURRENT_WEEK} cover={true} />
   </>
 );
 
