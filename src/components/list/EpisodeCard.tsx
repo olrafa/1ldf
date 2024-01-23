@@ -23,10 +23,10 @@ const EpisodeCard = ({ week, cover }: EpisodeCardProps): ReactElement => {
       className="mt-4 mx-2 p-5 border-4 border-ldfRed cursor-pointer text-left text-xl md:text-2xl"
       onClick={() => navigate(`/episodios/${week}`)}
     >
-      {cover && <p>Episódio mais recente</p>}
+      {cover && <p className="font-titles">Episódio mais recente</p>}
       <div className="flex flex-col gap-5 md:flex-row text-left items-center justify-around">
         <div className="mt-4 flex flex-col gap-5">
-          <p>{name}</p>
+          <p className="font-titles text-4xl">{name}</p>
           <p className="text-lg">{description}</p>
         </div>
         <img src={img} className="w-96" />

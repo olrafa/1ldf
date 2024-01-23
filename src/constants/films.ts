@@ -17,5 +17,6 @@ const FILMS: Film[] = [
     director: "Michael Bay",
     year: 1996,
     poster: theRock,
+    justWatch: "https://www.justwatch.com/br/filme/a-rocha",
   },
 ];

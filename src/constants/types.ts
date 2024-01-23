@@ -1,7 +1,7 @@
 export type Book = {
   title: string;
   author: string;
-  year: number,
+  year: number;
   cover?: string;
   amazonLink?: string;
 };
@@ -10,7 +10,8 @@ export type Film = {
   title: string;
   director: string;
   year: number;
-  poster?: string; 
+  poster?: string;
+  justWatch?: string;
 };
 
 export type Record = {
@@ -18,6 +19,7 @@ export type Record = {
   artist: string;
   year: number;
   cover?: string;
+  songWhip?: string;
 };
 
 export type Guest = {

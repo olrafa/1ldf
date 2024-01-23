@@ -7,6 +7,7 @@ function App() {
   return (
     <div>
       <Header />
+      <div className="mt-10"></div>
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/episodios/:id" element={<Episode />} />

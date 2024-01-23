@@ -18,5 +18,6 @@ const BOOKS: Book[] = [
     author: "Ruy Castro",
     year: 1990,
     cover: chegaDeSaudade,
+    amazonLink: "https://www.amazon.com.br/Chega-saudade-Ruy-Castro/dp/8535927522"
   },
 ];

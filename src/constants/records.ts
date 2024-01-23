@@ -17,5 +17,6 @@ const RECORDS: Record[] = [
     artist: "Caetano Veloso",
     year: 1984,
     cover: velo,
+    songWhip: "https://songwhip.com/caetano-veloso/velo",
   },
 ];
