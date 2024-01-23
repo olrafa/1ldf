@@ -12,6 +12,9 @@ export default {
         ldfRed: "#f10e21",
       },
     },
+    fontFamily: {
+      'titles': ["Passion One"]
+    }
   },
   plugins: [],
 };

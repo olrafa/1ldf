@@ -6,7 +6,7 @@ import { CURRENT_WEEK } from "../../constants";
 
 const Main = (): ReactElement => (
   <>
-    <div className="flex flex-col md:flex-row items-center gap-5 p-5 text-ldfGrey border-4 border-ldfPink text-left justify-center text-2xl md:text-4xl">
+    <div className="flex flex-col md:flex-row items-center gap-5 p-5 border-4 border-ldfPink text-left justify-center text-2xl md:text-4xl">
       <img src={profile} />
       <div>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

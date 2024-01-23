@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 
 const About = (): ReactElement => (
-  <div className="text-left text-ldfGrey text-lg mt-5 p-5 border-4 border-ldfBlue">
+  <div className="text-left text-lg mt-5 p-5 border-4 border-ldfBlue">
     <p>
       Todo mundo tem um filme que marcou sua vida, um disco cujas músicas
       viraram hinos e trilha sonora para as mais diferentes situações e emoções,

@@ -20,7 +20,7 @@ const EpisodeCard = ({ week, cover }: EpisodeCardProps): ReactElement => {
 
   return (
     <div
-      className="text-ldfGrey mt-5 p-5 border-4 border-ldfRed cursor-pointer text-left text-xl md:text-2xl"
+      className="mt-5 p-5 border-4 border-ldfRed cursor-pointer text-left text-xl md:text-2xl"
       onClick={() => navigate(`/episodios/${week}`)}
     >
       {cover && <p>Episódio mais recente</p>}
