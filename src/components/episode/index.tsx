@@ -23,14 +23,14 @@ const Episode = (): ReactElement => {
       <div className="md:w-3/5">{description}</div>
       <div className="aspect-video w-full md:w-4/5">
         <iframe
-          className="w-full h-full"
+          className="w-full h-full content-box"
           src={youTube}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share: fullscreen"
           loading="lazy"
           allowFullScreen
         ></iframe>
       </div>
-      <div className="font-titles text-5xl mt-8">As escolhas</div>
+      <div className="font-titles text-5xl mt-12">As escolhas</div>
       <div className="flex flex-col md:flex-row md:w-4/5 justify-between">
         <PieceCard
           type="Livro"

@@ -5,8 +5,8 @@ import { CURRENT_WEEK } from "../../constants";
 
 const Main = (): ReactElement => (
   <div className="md:mt-4 flex flex-col mx-auto md:w-2/3">
-    <EpisodeCard week={CURRENT_WEEK} cover={true} />
     <About />
+    <EpisodeCard week={CURRENT_WEEK} cover={true} />
   </div>
 );
 
