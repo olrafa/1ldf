@@ -26,7 +26,6 @@ export type Guest = {
   week: number;
   name: string;
   description: string;
-  spotify: string;
   youTube: string;
   img: string;
   book: Book;

@@ -27,7 +27,7 @@ const EpisodeCard = ({ week, cover }: EpisodeCardProps): ReactElement => {
           <p className="font-titles text-4xl">{name}</p>
           <p className="text-lg">{description}</p>
         </div>
-        <img src={img} className="w-96" />
+        <img src={img} className="w-72 rounded-xl" />
       </div>
     </a>
   );

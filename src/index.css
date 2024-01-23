@@ -19,7 +19,7 @@
 
 a {
   font-weight: 500;
-  color: #0077ad;
+  color: #312726;
   text-decoration: inherit;
 }
 a:hover {
@@ -77,4 +77,9 @@ header {
 .content-box {
   box-shadow: #ca28bc 10px 10px, #0077ad 20px 20px,
   #f10e21 30px 30px;
+}
+
+.content-box-small {
+  box-shadow: #ca28bc 5px 5px, #0077ad 10px 10px,
+  #f10e21 15px 15px;
 }

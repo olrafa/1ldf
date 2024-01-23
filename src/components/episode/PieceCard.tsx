@@ -36,7 +36,7 @@ const PieceCard = ({
           href={amazonLink}
           target="_blank"
           rel="noreferrer noopener"
-          className="text-sm border border-black p-2 items-center flex flex-row gap-2"
+          className="text-sm p-2 items-center flex flex-row gap-2 bg-slate-50 content-box-small"
         ><FontAwesomeIcon icon={faAmazon} />
           Ver na Amazon
         </a>}
@@ -45,7 +45,7 @@ const PieceCard = ({
           href={songWhip}
           target="_blank"
           rel="noreferrer noopener"
-          className="text-sm border border-black p-2"
+          className="text-sm p-2 bg-slate-50 content-box-small"
         >
           Onde escutar
         </a>
@@ -55,7 +55,7 @@ const PieceCard = ({
           href={justWatch}
           target="_blank"
           rel="noreferrer noopener"
-          className="text-sm border border-black p-2"
+          className="text-sm p-2 bg-slate-50 content-box-small"
         >
           Onde assistir
         </a>
