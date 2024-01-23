@@ -15,16 +15,14 @@ const Episode = (): ReactElement => {
     return <></>;
   }
 
-  const { descriptionLong, youTube, name, book, record, film } = guest;
+  const { description, youTube, name, book, record, film } = guest;
 
   return (
     <div className="flex flex-col items-center gap-5 p-6 text-center justify-center text-xl">
       <div className="font-titles text-6xl">{name}</div>
-      <div className="md:mx-12 flex md:flex-row flex-col gap-8 items-center">
-        <div className="w-1/3">{descriptionLong}</div>
-        <iframe
-          width="624"
-          height="351"
+      <div className="md:w-3/5">{description}</div>
+      <div className="aspect-w-16 aspect-h-9 w-full md:aspect-w-16 md:aspect-h-9 md:w-3/4">
+        <iframe className="w-full h-full"
           src={youTube}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share: fullscreen"
           loading="lazy"

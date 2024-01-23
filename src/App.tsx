@@ -1,14 +1,17 @@
-import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Main from "./components/main";
 import Episode from "./components/episode";
+import Header from "./components/header";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Main />} />
-      <Route path="/episodios/:id" element={<Episode />} />
-    </Routes>
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/episodios/:id" element={<Episode />} />
+      </Routes>
+    </div>
   );
 }
 

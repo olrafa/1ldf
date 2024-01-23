@@ -15,7 +15,7 @@ const PieceCard = ({
   year,
   imgSrc,
 }: PieceCardProps): ReactElement => (
-  <div className="mb-2 border-4 w-4/5">
+  <div className="mb-2 border-4 md:w-2/4 w-full">
     <div className="font-titles text-4xl pt-8">{type}</div>
     <div className="flex flex-row items-center gap-5 justify-around py-12">
       <div>

@@ -1,21 +1,13 @@
 import { ReactElement } from "react";
-import profile from "../../assets/profile.jpg";
 import About from "./About";
 import EpisodeCard from "../list/EpisodeCard";
 import { CURRENT_WEEK } from "../../constants";
 
 const Main = (): ReactElement => (
-  <>
-    <div className="flex flex-col md:flex-row items-center gap-5 p-5 border-4 border-ldfPink text-left justify-center text-2xl md:text-4xl">
-      <img src={profile} />
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </div>
-    </div>
-    <About />
+  <div className="md:mt-4 flex flex-col mx-auto md:w-2/3">
     <EpisodeCard week={CURRENT_WEEK} cover={true} />
-  </>
+    <About />
+  </div>
 );
 
 export default Main;

@@ -20,16 +20,16 @@ const EpisodeCard = ({ week, cover }: EpisodeCardProps): ReactElement => {
 
   return (
     <div
-      className="mt-5 p-5 border-4 border-ldfRed cursor-pointer text-left text-xl md:text-2xl"
+      className="mt-4 mx-2 p-5 border-4 border-ldfRed cursor-pointer text-left text-xl md:text-2xl"
       onClick={() => navigate(`/episodios/${week}`)}
     >
       {cover && <p>Episódio mais recente</p>}
-      <div className="flex flex-col gap-5 md:flex-row text-left items-center justify-between">
-        <div className="md:w-1/3 mt-4 flex flex-col gap-5">
+      <div className="flex flex-col gap-5 md:flex-row text-left items-center justify-around">
+        <div className="mt-4 flex flex-col gap-5">
           <p>{name}</p>
-          <p>{description}</p>
+          <p className="text-lg">{description}</p>
         </div>
-        <img src={img} className="md:w-2/3" />
+        <img src={img} className="w-96" />
       </div>
     </div>
   );
