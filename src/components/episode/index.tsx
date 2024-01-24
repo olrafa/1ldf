@@ -4,6 +4,7 @@ import { GUESTS_LIST } from "../../constants/guests";
 import PieceCard from "./PieceCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import References from "./References";
 
 const Episode = (): ReactElement => {
   const { pathname } = useLocation();
@@ -63,6 +64,7 @@ const Episode = (): ReactElement => {
           justWatch={film.justWatch}
         />
       </div>
+      <References guestNumber={guestWeek} />
     </div>
   );
 };
