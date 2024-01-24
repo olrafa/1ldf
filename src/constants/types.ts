@@ -35,17 +35,19 @@ export type Guest = {
 };
 
 type Category =
-  | "Book"
-  | "Record"
-  | "Film"
-  | "Song"
-  | "Video"
-  | "Series"
-  | "Print";
+  | "book"
+  | "record"
+  | "film"
+  | "song"
+  | "video"
+  | "series"
+  | "print";
 
 export type Reference = {
+  id: number,
   title: string;
   author: string;
   category: Category;
   link?: string;
+  guestWeek: number;
 };
