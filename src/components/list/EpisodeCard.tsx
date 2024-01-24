@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { GUESTS_LIST } from "../../constants";
+import { GUESTS_LIST } from "../../constants/guests";
 
 type EpisodeCardProps = {
   week: number;

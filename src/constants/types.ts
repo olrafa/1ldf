@@ -33,3 +33,19 @@ export type Guest = {
   film: Film;
   otherReferences?: Array<Book | Record | Film>;
 };
+
+type Category =
+  | "Book"
+  | "Record"
+  | "Film"
+  | "Song"
+  | "Video"
+  | "Series"
+  | "Print";
+
+export type Reference = {
+  title: string;
+  author: string;
+  category: Category;
+  link?: string;
+};

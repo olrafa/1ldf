@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { useLocation } from "react-router-dom";
-import { GUESTS_LIST } from "../../constants";
+import { GUESTS_LIST } from "../../constants/guests";
 import PieceCard from "./PieceCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
@@ -32,7 +32,10 @@ const Episode = (): ReactElement => {
           allowFullScreen
         ></iframe>
       </div>
-      <div className="font-titles mt-8 flex gap-3 items-center"><span>Obras mencionadas no episódio</span><FontAwesomeIcon icon={faArrowDown}/></div>
+      <div className="font-titles mt-8 flex gap-3 items-center">
+        <span>Obras mencionadas no episódio</span>
+        <FontAwesomeIcon icon={faArrowDown} />
+      </div>
       <div className="font-titles text-5xl mt-4">As escolhas</div>
       <div className="flex flex-col md:flex-row md:w-4/5 justify-between">
         <PieceCard
