@@ -27,6 +27,7 @@ export type Guest = {
   name: string;
   description: string;
   youTube: string;
+  spotify: string;
   img: string;
   book: Book;
   record: Record;
