@@ -1,23 +1,17 @@
 import { ReactElement } from "react";
-import { GUESTS_LIST } from "../../constants/guests";
+import { Guest } from "../../constants/types";
 
 type EpisodeCardProps = {
-  week: number;
+  guest: Guest;
   cover?: boolean;
 };
 
-const EpisodeCard = ({ week, cover }: EpisodeCardProps): ReactElement => {
-  const guest = GUESTS_LIST.find(({ week: guestWeek }) => week === guestWeek);
-
-  if (!guest) {
-    return <></>;
-  }
-
-  const { description, img, name } = guest;
+const EpisodeCard = ({ guest, cover }: EpisodeCardProps): ReactElement => {
+  const { description, img, name, week } = guest;
 
   return (
     <a
-      className="mt-4 mx-2 p-5 cursor-pointer text-left text-xl md:text-2xl bg-white text-ldfGrey content-box"
+      className={`mt-4 mb-4 mx-2 p-5 cursor-pointer text-left text-xl md:text-2xl bg-white text-ldfGrey content-box ${!cover && "md:w-3/5"}`}
       href={`/episodios/${week}`}
       rel="noreferrer noopener"
     >
