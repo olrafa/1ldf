@@ -32,19 +32,22 @@ const PieceCard = ({
         <div className="font-titles text-3xl">{author}</div>
         <div className="font-titles text-2xl">{year}</div>
       </div>
-      {amazonLink && <a
+      {amazonLink && (
+        <a
           href={amazonLink}
           target="_blank"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           className="text-sm p-2 items-center flex flex-row gap-2 bg-slate-50 content-box-small"
-        ><FontAwesomeIcon icon={faAmazon} />
+        >
+          <FontAwesomeIcon icon={faAmazon} />
           Ver na Amazon
-        </a>}
+        </a>
+      )}
       {songWhip && (
         <a
           href={songWhip}
           target="_blank"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           className="text-sm p-2 bg-slate-50 content-box-small"
         >
           Onde escutar
@@ -54,7 +57,7 @@ const PieceCard = ({
         <a
           href={justWatch}
           target="_blank"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           className="text-sm p-2 bg-slate-50 content-box-small"
         >
           Onde assistir

@@ -21,7 +21,7 @@ const References = ({ guestNumber }: ReferencesProps): ReactElement => {
             key={guestRef.id}
             href={guestRef.link}
             target="_blank"
-            rel="noreferrer noopener"
+            rel="noopener noreferrer"
             className="text-slate-50 items-center flex flex-row justify-between p-2 hover:bg-slate-700 text-base hover:text-slate-100"
           >
             <div className="font-bold text-left">
