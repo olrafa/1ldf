@@ -1,4 +1,5 @@
 import { Film } from "./types";
+import memento from "../assets/films/01_amnesia.jpg";
 import theRock from "../assets/films/02_a_rocha.jpg";
 
 const genericFilm: Film = {
@@ -12,6 +13,13 @@ export const findFilm = (FilmTitle: string): Film =>
   FILMS.find(({ title }) => title === FilmTitle) || genericFilm;
 
 const FILMS: Film[] = [
+  {
+    title: "Amnésia",
+    director: "Christopher Nolan",
+    year: 2000,
+    poster: memento,
+    justWatch: "https://www.justwatch.com/br/filme/amnesia-2000",
+  },
   {
     title: "A Rocha",
     director: "Michael Bay",

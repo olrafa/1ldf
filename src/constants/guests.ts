@@ -1,3 +1,4 @@
+import karolQueiroz from "../assets/guests/01_karol.png";
 import pvc from "../assets/guests/02_pvc.png";
 import { findBook } from "./books";
 import { findFilm } from "./films";
@@ -7,6 +8,16 @@ import { Guest } from "./types";
 export const CURRENT_WEEK = 2;
 
 export const GUESTS_LIST: Guest[] = [
+  {
+    week: 1,
+    name: "Karol Queiroz",
+    description: `No nosso episódio de estreia, recebemos a criadora de conteúdo e futura psicóloga Karol Queiroz. Ela fala sobre o livro 'Sapiens - Uma Breve História da Humanidade', o disco 'Californication', o filme 'Amnésia', e como essas obras se relacionam com sua vida.`,
+    youTube: "https://www.youtube.com/embed/a5wr0fQddTQ?si=YQooLm0eE4IzmWfC",
+    img: karolQueiroz,
+    book: findBook("Sapiens - Uma Breve História da Humanidade"),
+    film: findFilm("Amnésia"),
+    record: findRecord("Californication"),
+  },
   {
     week: 2,
     name: "PVC",
