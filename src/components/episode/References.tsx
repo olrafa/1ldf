@@ -15,7 +15,7 @@ const References = ({ guestNumber }: ReferencesProps): ReactElement => {
   return (
     <div className="md:w-2/4">
       <div className="font-titles text-5xl mt-4">Outras referências</div>
-      <div className="mt-4 divide-y">
+      <div className="mt-4 divide-y divide-gray-600">
         {guestRefs.map((guestRef) => (
           <a
             key={guestRef.id}
