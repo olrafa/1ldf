@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import profile from "../../assets/profile.jpg";
 
 const About = (): ReactElement => (
-  <div className="mt-4 mx-2 p-5 items-center text-left text-xl text-white md:flex-row flex-col flex gap-8 md:gap-12">
+  <div className="mt-4 mx-2 p-5 items-center text-left md:text-xl text-white md:flex-row flex-col flex gap-8 md:gap-12">
     <img src={profile} />
     <div>
       <p>

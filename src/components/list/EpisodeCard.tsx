@@ -11,7 +11,7 @@ const EpisodeCard = ({ guest, cover }: EpisodeCardProps): ReactElement => {
 
   return (
     <a
-      className={`mt-4 mb-4 mx-2 p-5 cursor-pointer text-left text-xl md:text-2xl bg-white text-ldfGrey content-box ${
+      className={`my-4 md:mx-2 mx-4 p-5 cursor-pointer text-left text-xl md:text-2xl bg-white text-ldfGrey content-box-small ${
         !cover && "md:w-3/5"
       }`}
       href={`/episodios/${week}`}
