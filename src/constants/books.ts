@@ -17,7 +17,7 @@ const BOOKS: Book[] = [
   {
     title: "Sapiens - Uma Breve História da Humanidade",
     author: "Yuval Noah Harari",
-    year: 2020,
+    year: 2014,
     cover: sapiens,
     amazonLink:
       "https://www.amazon.com.br/Sapiens-Nova-edição-história-humanidade/dp/8535933921",

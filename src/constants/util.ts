@@ -1,10 +1,10 @@
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import {
   faBookOpen,
-  faFilm,
+  faClapperboard,
   faMusic,
   faNewspaper,
-  faPlay,
   faRecordVinyl,
   faTv,
 } from "@fortawesome/free-solid-svg-icons";
@@ -12,9 +12,9 @@ import {
 export const CATEGORY_ICONS: { [key: string]: IconProp } = {
   book: faBookOpen,
   record: faRecordVinyl,
-  film: faFilm,
+  film: faClapperboard,
   song: faMusic,
-  video: faPlay,
+  video: faYoutube,
   series: faTv,
   print: faNewspaper,
 };
