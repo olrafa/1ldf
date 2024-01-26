@@ -130,6 +130,14 @@ export const REFERENCES: Reference[] = [
     guestWeek: 2,
   },
   {
+    id: 43,
+    title: "Meia-Noite em Paris",
+    author: "Woody Allen",
+    category: "film",
+    link: "https://www.justwatch.com/br/filme/midnight-in-paris",
+    guestWeek: 2,
+  },
+  {
     id: 17,
     title: "Saúde",
     author: "Rita Lee",
@@ -322,7 +330,7 @@ export const REFERENCES: Reference[] = [
     guestWeek: 1,
   },
   {
-    id: 39,
+    id: 41,
     title: "Karma Police",
     author: "Radiohead",
     category: "song",
@@ -330,7 +338,7 @@ export const REFERENCES: Reference[] = [
     guestWeek: 1,
   },
   {
-    id: 40,
+    id: 42,
     title: "Lucky Man",
     author: "The Verve",
     category: "song",

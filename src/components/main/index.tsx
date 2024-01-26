@@ -7,7 +7,7 @@ const Main = (): ReactElement => {
   const latestGuest = GUESTS_LIST.find(({ week }) => week === CURRENT_WEEK);
 
   return (
-    <div className="md:mt-4 flex flex-col mx-auto md:w-2/3">
+    <div className="md:mt-4 mb-4 flex flex-col mx-auto md:w-2/3">
       <About />
       {latestGuest && <EpisodeCard guest={latestGuest} cover={true} />}
     </div>
