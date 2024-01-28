@@ -3,6 +3,7 @@ import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import {
   faBookOpen,
   faClapperboard,
+  faMicrophone,
   faMusic,
   faNewspaper,
   faRecordVinyl,
@@ -17,4 +18,5 @@ export const CATEGORY_ICONS: { [key: string]: IconProp } = {
   video: faYoutube,
   series: faTv,
   print: faNewspaper,
+  podcast: faMicrophone
 };
