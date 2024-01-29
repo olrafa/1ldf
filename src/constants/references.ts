@@ -386,6 +386,14 @@ export const REFERENCES: Reference[] = [
     guestWeek: 3,
   },
   {
+    id: 66,
+    title: "Doze Homens e Uma Sentença",
+    author: "Sidney Lumet",
+    category: "film",
+    link: "https://www.justwatch.com/br/filme/12-homens-e-uma-sentenca",
+    guestWeek: 3,
+  },
+  {
     id: 48,
     title: "Cães de Aluguel",
     author: "Quentin Tarantino",
