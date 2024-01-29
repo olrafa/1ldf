@@ -1,6 +1,7 @@
 import { Record } from "./types";
 import californication from "../assets/records/01_californication.jpg";
 import velo from "../assets/records/02_velo.jpg";
+import roomForSquares from "../assets/records/03_room_for_squares.jpg"
 
 const genericRecord: Record = {
   title: "Disco não encontrado",
@@ -26,5 +27,12 @@ const RECORDS: Record[] = [
     year: 1984,
     cover: velo,
     songWhip: "https://songwhip.com/caetano-veloso/velo",
+  },
+  {
+    title: "Room For Squares",
+    artist: "John Mayer",
+    year: 2001,
+    cover: roomForSquares,
+    songWhip: "https://songwhip.com/john-mayer/room-for-squares",
   },
 ];

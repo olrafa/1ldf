@@ -42,10 +42,11 @@ type Category =
   | "song"
   | "video"
   | "series"
-  | "print";
+  | "print"
+  | "podcast";
 
 export type Reference = {
-  id: number,
+  id: number;
   title: string;
   author: string;
   category: Category;

@@ -26,10 +26,16 @@ const References = ({ guestNumber }: ReferencesProps): ReactElement => {
           >
             <div className="font-bold text-left">
               {guestRef.title}
-              {", "}
-              <span className="font-normal">{guestRef.author}</span>
+              {guestRef.author && (
+                <>
+                  {", "}
+                  <span className="font-normal">{guestRef.author}</span>
+                </>
+              )}
             </div>
-            <FontAwesomeIcon icon={CATEGORY_ICONS[guestRef.category]} />
+            <div className="md:w-[3%]">
+              <FontAwesomeIcon icon={CATEGORY_ICONS[guestRef.category]} />
+            </div>
           </a>
         ))}
       </div>
