@@ -2,13 +2,13 @@ import { ReactElement } from "react";
 import About from "./About";
 import EpisodeCard from "../list/EpisodeCard";
 import useGetGuests from "../../hooks/useGetGuests";
+import Loader from "../loader";
 
 const Main = (): ReactElement => {
-
   const { data: guests = [], isLoading } = useGetGuests();
 
   if (isLoading) {
-    return <div>AAAA</div>
+    return <Loader />;
   }
 
   const [latestGuest] = guests;

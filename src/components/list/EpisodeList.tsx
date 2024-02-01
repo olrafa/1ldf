@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 import { LIST_DESCRIPTION } from "./strings";
 import EpisodeCard from "./EpisodeCard";
 import useGetGuests from "../../hooks/useGetGuests";
+import Loader from "../loader";
 
 const EpisodeList = (): ReactElement => {
   const { data: guests = [], isLoading } = useGetGuests();
@@ -9,7 +10,7 @@ const EpisodeList = (): ReactElement => {
   const guestData = guests.map(({ attributes }) => attributes);
 
   if (isLoading) {
-    return <div>AAAA</div>
+    return <Loader />;
   }
 
   return (

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import References from "./References";
 import useGetEpisode from "../../hooks/useGetEpisode";
+import Loader from "../loader";
 
 const Episode = (): ReactElement => {
   const { pathname } = useLocation();
@@ -15,7 +16,7 @@ const Episode = (): ReactElement => {
   const { data, isLoading } = useGetEpisode(guestWeek);
 
   if (isLoading || !data) {
-    return <div>aaaa</div>;
+    return <Loader />;
   }
 
   const { attributes: guest } = data;
