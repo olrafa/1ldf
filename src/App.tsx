@@ -3,10 +3,14 @@ import Main from "./components/main";
 import Episode from "./components/episode";
 import Header from "./components/header";
 import EpisodeList from "./components/list/EpisodeList";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
-    <div>
+    <QueryClientProvider client={queryClient}>
       <Header />
       <div className="mt-10"></div>
       <Routes>
@@ -14,7 +18,8 @@ function App() {
         <Route path="/episodios" element={<EpisodeList />} />
         <Route path="/episodios/:id" element={<Episode />} />
       </Routes>
-    </div>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 

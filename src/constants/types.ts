@@ -23,12 +23,12 @@ export type Record = {
 };
 
 export type Guest = {
-  week: number;
+  epNumber: number;
   name: string;
   description: string;
   youTube: string;
   spotify: string;
-  img: string;
+  imageLink: string;
   book: Book;
   record: Record;
   film: Film;
