@@ -1,10 +1,10 @@
 import { ReactElement } from "react";
 import { useLocation } from "react-router-dom";
-import { GUESTS_LIST } from "../../constants/guests";
 import PieceCard from "./PieceCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import References from "./References";
+import useGetEpisode from "../../hooks/useGetEpisode";
 
 const Episode = (): ReactElement => {
   const { pathname } = useLocation();
@@ -12,13 +12,28 @@ const Episode = (): ReactElement => {
 
   const guestWeek = parseInt(episode);
 
-  const guest = GUESTS_LIST.find(({ week }) => week === guestWeek);
+  const { data, isLoading } = useGetEpisode(guestWeek);
 
-  if (!guest) {
-    return <></>;
+  if (isLoading || !data) {
+    return <div>aaaa</div>;
   }
 
-  const { description, youTube, name, book, record, film } = guest;
+  const { attributes: guest } = data;
+
+  const { description, youtubeLink, name, book, record, film, references } =
+    guest;
+
+  const embedLink = youtubeLink.replace("watch?v=", "embed/");
+
+  const {
+    data: { attributes: bookData },
+  } = book;
+  const {
+    data: { attributes: recordData },
+  } = record;
+  const {
+    data: { attributes: filmData },
+  } = film;
 
   return (
     <div className="flex flex-col items-center gap-5 p-6 text-center justify-center text-xl">
@@ -27,7 +42,7 @@ const Episode = (): ReactElement => {
       <div className="aspect-video w-full md:w-3/5">
         <iframe
           className="w-full h-full content-box"
-          src={youTube}
+          src={embedLink}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share: fullscreen"
           loading="lazy"
           allowFullScreen
@@ -41,30 +56,30 @@ const Episode = (): ReactElement => {
       <div className="flex flex-col md:flex-row md:w-4/5 justify-between">
         <PieceCard
           type="Livro"
-          title={book.title}
-          author={book.author}
-          year={book.year}
-          imgSrc={book.cover}
-          amazonLink={book.amazonLink}
+          title={bookData.title}
+          author={bookData.creator}
+          year={bookData.year}
+          imgSrc={bookData.coverImg}
+          amazonLink={bookData.link}
         />
         <PieceCard
           type="Disco"
-          title={record.title}
-          author={record.artist}
-          year={record.year}
-          imgSrc={record.cover}
-          songWhip={record.songWhip}
+          title={recordData.title}
+          author={recordData.creator}
+          year={recordData.year}
+          imgSrc={recordData.coverImg}
+          songWhip={recordData.link}
         />
         <PieceCard
           type="Filme"
-          title={film.title}
-          author={film.director}
-          year={film.year}
-          imgSrc={film.poster}
-          justWatch={film.justWatch}
+          title={filmData.title}
+          author={filmData.creator}
+          year={filmData.year}
+          imgSrc={filmData.coverImg}
+          justWatch={filmData.link}
         />
       </div>
-      <References guestNumber={guestWeek} />
+      <References guestRefs={references} />
     </div>
   );
 };
