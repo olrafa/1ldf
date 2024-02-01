@@ -3,18 +3,25 @@ import Main from "./components/main";
 import Episode from "./components/episode";
 import Header from "./components/header";
 import EpisodeList from "./components/list/EpisodeList";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import NotFound from "./components/notFound";
 
 function App() {
+  const queryClient = new QueryClient();
+
   return (
-    <div>
+    <QueryClientProvider client={queryClient}>
       <Header />
       <div className="mt-10"></div>
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/episodios" element={<EpisodeList />} />
         <Route path="/episodios/:id" element={<Episode />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
-    </div>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   );
 }
 

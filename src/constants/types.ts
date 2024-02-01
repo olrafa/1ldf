@@ -22,17 +22,38 @@ export type Record = {
   songWhip?: string;
 };
 
+type ArtReference = {
+  title: string;
+  creator: string;
+  year: number;
+  coverImg?: string;
+  link?: string;
+  category: Category;
+};
+
+type ArtObject = {
+  id: number;
+  attributes: ArtReference;
+};
+
+type ArtResponse = {
+  data: ArtObject;
+};
+
+export type ArtResponseArray = {
+  data: ArtObject[];
+};
+
 export type Guest = {
-  week: number;
+  epNumber: number;
   name: string;
   description: string;
-  youTube: string;
-  spotify: string;
-  img: string;
-  book: Book;
-  record: Record;
-  film: Film;
-  otherReferences?: Array<Book | Record | Film>;
+  youtubeLink: string;
+  imageLink: string;
+  book: ArtResponse;
+  record: ArtResponse;
+  film: ArtResponse;
+  references: ArtResponseArray;
 };
 
 type Category =
@@ -44,12 +65,3 @@ type Category =
   | "series"
   | "print"
   | "podcast";
-
-export type Reference = {
-  id: number;
-  title: string;
-  author: string;
-  category: Category;
-  link?: string;
-  guestWeek: number;
-};

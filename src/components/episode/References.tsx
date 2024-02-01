@@ -1,40 +1,40 @@
 import { ReactElement } from "react";
-import { REFERENCES } from "../../constants/references";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CATEGORY_ICONS } from "../../constants/util";
+import { ArtResponseArray } from "../../constants/types";
 
 type ReferencesProps = {
-  guestNumber: number;
+  guestRefs: ArtResponseArray;
 };
 
-const References = ({ guestNumber }: ReferencesProps): ReactElement => {
-  const guestRefs = REFERENCES.filter(
-    ({ guestWeek }) => guestWeek === guestNumber
-  );
+const References = ({ guestRefs }: ReferencesProps): ReactElement => {
+  console.log(guestRefs);
+
+  const { data: refList } = guestRefs;
 
   return (
     <div className="md:w-2/4">
       <div className="font-titles text-5xl mt-4">Outras referências</div>
       <div className="mt-4 divide-y divide-gray-600">
-        {guestRefs.map((guestRef) => (
+        {refList.map(({id, attributes}) => (
           <a
-            key={guestRef.id}
-            href={guestRef.link}
+            key={id}
+            href={attributes.link}
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-50 items-center flex flex-row justify-between p-2 hover:bg-slate-700 text-base hover:text-slate-100"
           >
             <div className="font-bold text-left">
-              {guestRef.title}
-              {guestRef.author && (
+              {attributes.title}
+              {attributes.creator && (
                 <>
                   {", "}
-                  <span className="font-normal">{guestRef.author}</span>
+                  <span className="font-normal">{attributes.creator}</span>
                 </>
               )}
             </div>
             <div className="md:w-[3%]">
-              <FontAwesomeIcon icon={CATEGORY_ICONS[guestRef.category]} />
+              <FontAwesomeIcon icon={CATEGORY_ICONS[attributes.category]} />
             </div>
           </a>
         ))}
