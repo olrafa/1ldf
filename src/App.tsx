@@ -13,7 +13,6 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-      <div className="mt-10"></div>
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/episodios" element={<EpisodeList />} />
