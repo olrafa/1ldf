@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import NotFound from "./components/notFound";
 import Team from "./components/team";
+import Experience from "./components/experience";
 
 function App() {
   const queryClient = new QueryClient();
@@ -19,6 +20,7 @@ function App() {
         <Route path="/episodios" element={<EpisodeList />} />
         <Route path="/episodios/:id" element={<Episode />} />
         <Route path="/equipe" element={<Team />} />
+        <Route path="/experiencia" element={<Experience />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <ReactQueryDevtools initialIsOpen={false} />
