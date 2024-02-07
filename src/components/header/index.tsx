@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ReactElement, useState } from "react";
 import { LINKS } from "../../constants/links";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const ButtonsList = () => (
   <>
@@ -18,7 +18,6 @@ const ButtonsList = () => (
     <a href="/maisumdisco">+1 DISCO</a>
     <a href="/maisumfilme">+1 FILME</a>
     <a href="/equipe">EQUIPE</a>
-    <a href="/contato">CONTATO</a>
   </>
 );
 
@@ -37,6 +36,9 @@ const Header = (): ReactElement => {
           onClick={() => setIsMenuOpen((_open) => !_open)}
         />
         <div className="gap-12 flex">
+          <a href={LINKS.email} target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faEnvelope} />
+          </a>
           <a href={LINKS.youTube} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faYoutube} />
           </a>
