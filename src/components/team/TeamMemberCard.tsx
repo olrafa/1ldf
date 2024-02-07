@@ -11,7 +11,6 @@ const TeamMemberCard = ({ teamMember }: TeamMemberProps): ReactElement => {
   const { name, description, imgLink, socials = "" } = teamMember;
 
   const socialUrl = socials?.split("@")[1];
-  console.log(description);
 
   return (
     <div
