@@ -65,3 +65,10 @@ type Category =
   | "series"
   | "print"
   | "podcast";
+
+export type TeamMember = {
+  name: string;
+  description: string;
+  imgLink: string;
+  socials: string | null;
+};
