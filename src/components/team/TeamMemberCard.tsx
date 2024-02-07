@@ -25,7 +25,7 @@ const TeamMemberCard = ({ teamMember }: TeamMemberProps): ReactElement => {
           {socialUrl && (
             <a
               className="text-base items-center flex gap-1 w-fit cursor-pointer"
-              href={`http://instagram.com/${socialUrl}`}
+              href={`https://instagram.com/${socialUrl}`}
               target="_blank"
               rel="noopener noreferrer"
             >
