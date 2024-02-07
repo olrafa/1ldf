@@ -11,7 +11,7 @@ const TeamMemberCard = ({ teamMember }: TeamMemberProps): ReactElement => {
   const { name, description, imgLink, socials = "" } = teamMember;
 
   const socialUrl = socials?.split("@")[1];
-  console.log(socialUrl);
+  console.log(description);
 
   return (
     <div
@@ -21,7 +21,7 @@ const TeamMemberCard = ({ teamMember }: TeamMemberProps): ReactElement => {
       <div className="flex flex-col gap-5 md:flex-row text-left items-center justify-around">
         <div className="mt-4 flex flex-col gap-5">
           <p className="font-titles text-4xl">{name}</p>
-          <p className="text-lg">{description}</p>
+          <p className="text-lg whitespace-pre-line">{description}</p>
           {socialUrl && (
             <a
               className="text-base items-center flex gap-1 w-fit cursor-pointer"

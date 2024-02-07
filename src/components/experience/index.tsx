@@ -8,7 +8,6 @@ const Experience = (): ReactElement => {
   if (!exp || isLoading) {
     return <Loader />;
   }
-  console.log(exp);
 
   const { title, description, imgLink } = exp;
 

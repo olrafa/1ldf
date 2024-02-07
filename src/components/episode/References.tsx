@@ -8,8 +8,6 @@ type ReferencesProps = {
 };
 
 const References = ({ guestRefs }: ReferencesProps): ReactElement => {
-  console.log(guestRefs);
-
   const { data: refList } = guestRefs;
 
   return (

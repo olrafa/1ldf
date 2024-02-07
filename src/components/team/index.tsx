@@ -11,8 +11,6 @@ const Team = (): ReactElement => {
   const { data: teamMembers = [], isLoading: isLoadingTeamMembers } =
     useGetTeamMembers();
 
-  console.log("description", description);
-
   if (!description || isLoadingDescription || isLoadingTeamMembers) {
     return <Loader />;
   }
@@ -21,8 +19,8 @@ const Team = (): ReactElement => {
     <div className="flex flex-col items-center gap-5 p-6 text-center justify-center text-xl">
       <div className="font-titles text-6xl">Equipe</div>
       <div className="md:w-3/5">{description}</div>
-      {teamMembers.map(({ attributes }) => (
-        <TeamMemberCard teamMember={attributes} />
+      {teamMembers.map(({ attributes, id }) => (
+        <TeamMemberCard teamMember={attributes} key={id} />
       ))}
     </div>
   );
