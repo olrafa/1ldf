@@ -10,7 +10,7 @@ type TeamMemberReturn = {
 };
 
 const getTeamMembers = async (): Promise<TeamMemberReturn[]> => {
-  const result = await api.get("equipes");
+  const result = await api.get("equipes?sort=id");
 
   return result.data.data;
 };
