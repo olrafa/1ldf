@@ -11,7 +11,6 @@ import Experience from "./components/experience";
 import Article from "./components/article";
 import ArticleList from "./components/list/ArticleList";
 import Footer from "./components/bars/Footer";
-import Sobre from "./components/Sobre";
 
 function App() {
   const queryClient = new QueryClient();
@@ -31,7 +30,6 @@ function App() {
         <Route path="/maisumdisco/:id" element={<Article type="record" />} />
         <Route path="/maisumfilme" element={<ArticleList category="film" />} />
         <Route path="/maisumfilme/:id" element={<Article type="film" />} />
-        <Route path="/about" element={<Sobre/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
