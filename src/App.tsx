@@ -8,6 +8,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import NotFound from "./components/notFound";
 import Team from "./components/team";
 import Experience from "./components/experience";
+import Article from "./components/article";
 /* import Footer from "./components/bars/Footer"; */
 
 function App() {
@@ -16,14 +17,15 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/episodios" element={<EpisodeList />} />
-          <Route path="/episodios/:id" element={<Episode />} />
-          <Route path="/equipe" element={<Team />} />
-          <Route path="/experiencia" element={<Experience />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/episodios" element={<EpisodeList />} />
+        <Route path="/episodios/:id" element={<Episode />} />
+        <Route path="/equipe" element={<Team />} />
+        <Route path="/experiencia" element={<Experience />} />
+        <Route path="/filmes/:id" element={<Article type="film" />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       {/* <Footer /> */}
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

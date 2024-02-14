@@ -36,7 +36,7 @@ type ArtObject = {
   attributes: ArtReference;
 };
 
-type ArtResponse = {
+export type ArtResponse = {
   data: ArtObject;
 };
 
@@ -55,6 +55,8 @@ export type Guest = {
   film: ArtResponse;
   references: ArtResponseArray;
 };
+
+export type ArticleCategory = "book" | "record" | "film";
 
 type Category =
   | "book"
