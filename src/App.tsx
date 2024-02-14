@@ -24,6 +24,10 @@ function App() {
         <Route path="/episodios/:id" element={<Episode />} />
         <Route path="/equipe" element={<Team />} />
         <Route path="/experiencia" element={<Experience />} />
+        <Route path="/maisumlivro" element={<ArticleList category="book" />} />
+        <Route path="/maisumlivro/:id" element={<Article type="book" />} />
+        <Route path="/maisumdisco" element={<ArticleList category="record" />} />
+        <Route path="/maisumdisco/:id" element={<Article type="record" />} />
         <Route path="/maisumfilme" element={<ArticleList category="film" />} />
         <Route path="/maisumfilme/:id" element={<Article type="film" />} />
         <Route path="*" element={<NotFound />} />
