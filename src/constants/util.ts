@@ -20,3 +20,9 @@ export const CATEGORY_ICONS: { [key: string]: IconProp } = {
   print: faNewspaper,
   podcast: faMicrophone
 };
+
+export const CATEGORY_TRANSLATIONS: { [key: string]: string } = {
+  book: "livro",
+  record: "disco",
+  film: "filme",
+};

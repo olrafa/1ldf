@@ -9,6 +9,7 @@ import NotFound from "./components/notFound";
 import Team from "./components/team";
 import Experience from "./components/experience";
 import Article from "./components/article";
+import ArticleList from "./components/list/ArticleList";
 /* import Footer from "./components/bars/Footer"; */
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
         <Route path="/episodios/:id" element={<Episode />} />
         <Route path="/equipe" element={<Team />} />
         <Route path="/experiencia" element={<Experience />} />
-        <Route path="/filmes/:id" element={<Article type="film" />} />
+        <Route path="/maisumfilme" element={<ArticleList category="film" />} />
+        <Route path="/maisumfilme/:id" element={<Article type="film" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {/* <Footer /> */}

@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import { ArticleCategory } from "../../constants/types";
+import { CATEGORY_TRANSLATIONS } from "../../constants/util";
 
 type ArticleNotFoundProps = {
   type: ArticleCategory;
@@ -13,10 +14,10 @@ const ArticleNotFound = ({ type }: ArticleNotFoundProps): ReactElement => (
       artigos:
     </div>
     <a
-      href="/episodios"
+      href={`/${CATEGORY_TRANSLATIONS[type]}`}
       className="content-box-small bg-slate-50 p-2 text-base"
     >
-      Ver lista de episódios
+      {`Ver lista de ${CATEGORY_TRANSLATIONS[type]}s`}
     </a>
   </div>
 );

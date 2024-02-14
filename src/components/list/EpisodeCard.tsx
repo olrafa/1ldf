@@ -23,7 +23,7 @@ const EpisodeCard = ({ guest, cover }: EpisodeCardProps): ReactElement => {
           <p className="font-titles text-4xl">{name}</p>
           <p className="text-lg">{description}</p>
         </div>
-        <img src={imageLink} className="w-72 rounded" />
+        <img src={imageLink} className="w-72" />
       </div>
     </a>
   );

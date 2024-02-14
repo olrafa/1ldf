@@ -16,6 +16,13 @@ type ArticleReturn = {
     oneFilmComment: string;
     publishedAt: string;
     updatedAt: string;
+    author: {
+      data: {
+        attributes: {
+          name: string;
+        };
+      };
+    };
   };
 };
 
@@ -24,7 +31,7 @@ const getArticle = async (
   articleId: number
 ): Promise<ArticleReturn> => {
   const result = await api.get(
-    `${type}s/${articleId}?populate=reference&populate=oneBook&populate=oneRecord&populate=oneFilm`
+    `${type}s/${articleId}?populate=reference&populate=oneBook&populate=oneRecord&populate=oneFilm&populate=author`
   );
 
   return result.data.data;

@@ -22,7 +22,7 @@ export type Record = {
   songWhip?: string;
 };
 
-type ArtReference = {
+export type ArtReference = {
   title: string;
   creator: string;
   year: number;

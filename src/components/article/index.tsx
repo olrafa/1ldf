@@ -111,18 +111,21 @@ const Article = ({ type }: ArticleProps): ReactElement => {
             {creator}, <span>{year}</span>
           </div>
           <div className="mb-4 text-lg">{description}</div>
+          <p className="text-base mt-4">
+            Por {attributes.author.data.attributes.name}
+          </p>
+          <p className="text-base">
+            Publicado em <span>{publishDate}</span>
+          </p>
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm p-2 items-center w-fit flex flex-row gap-2 bg-slate-50"
+            className="text-sm p-2 items-center w-fit flex flex-row gap-2 bg-slate-50 mt-4"
           >
             {type === "book" && <FontAwesomeIcon icon={faAmazon} />}
             <span>{getLinkString(type)}</span>
           </a>
-          <p className="text-base mt-4">
-            Publicado em <span>{publishDate}</span>
-          </p>
         </div>
       </div>
 
