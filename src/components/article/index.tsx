@@ -99,7 +99,7 @@ const Article = ({ type }: ArticleProps): ReactElement => {
   } = filmAttributes;
 
   return (
-    <div className="flex flex-col items-center gap-5 p-6 text-center justify-center text-xl">
+    <div className="flex flex-col items-center gap-5 p-6 text-center justify-center text-xl mb-16">
       <div className="flex md:w-3/5 mb-4 flex-col md:flex-row">
         <img
           className="m-auto md:m-0 max-h-80 w-fit content-box-small"

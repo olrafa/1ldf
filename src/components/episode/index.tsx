@@ -42,7 +42,7 @@ const Episode = (): ReactElement => {
   } = film;
 
   return (
-    <div className="flex flex-col items-center gap-5 p-6 text-center justify-center text-xl">
+    <div className="flex flex-col items-center gap-5 p-6 text-center justify-center text-xl mb-16">
       <div className="font-titles text-6xl">{name}</div>
       <div className="md:w-3/5">{description}</div>
       <div className="aspect-video w-full md:w-3/5">

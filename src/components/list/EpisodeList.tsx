@@ -14,7 +14,7 @@ const EpisodeList = (): ReactElement => {
   }
 
   return (
-    <div className="flex flex-col items-center gap-5 p-6 text-center justify-center text-xl mb-12">
+    <div className="flex flex-col items-center gap-5 p-6 text-center justify-center text-xl mb-16">
       <div className="font-titles text-6xl">Episódios</div>
       <div className="md:w-3/5">{LIST_DESCRIPTION}</div>
       {guestData.map((guest) => (
