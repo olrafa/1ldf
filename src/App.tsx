@@ -18,11 +18,10 @@ inject();
 
 function App() {
   const queryClient = new QueryClient();
-  const helmetContext = {};
 
   return (
     <QueryClientProvider client={queryClient}>
-      <HelmetProvider context={helmetContext}>
+      <HelmetProvider>
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
