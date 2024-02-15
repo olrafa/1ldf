@@ -16,8 +16,6 @@ const ArticleList = ({ category }: ArticleListCategoryProps): ReactElement => {
     return <Loader />;
   }
 
-  console.log(articles);
-
   const articleData = articles.map(({ id, attributes }) => ({
     id,
     attributes,

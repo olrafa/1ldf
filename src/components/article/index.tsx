@@ -10,6 +10,7 @@ import Markdown from "react-markdown";
 import { faAmazon } from "@fortawesome/free-brands-svg-icons";
 import { getLinkString } from "./util";
 import { CATEGORY_ICONS } from "../../constants/util";
+import { Helmet } from "react-helmet";
 
 type ArticleProps = {
   type: ArticleCategory;
@@ -32,8 +33,6 @@ const Article = ({ type }: ArticleProps): ReactElement => {
     return <ArticleNotFound type={type} />;
   }
 
-  console.log(articleData);
-
   const { attributes } = articleData;
   const {
     article,
@@ -51,8 +50,6 @@ const Article = ({ type }: ArticleProps): ReactElement => {
   const {
     data: { attributes: refAttributes },
   } = reference;
-
-  console.log(refAttributes);
 
   const { title, creator, link, coverImg, year } = refAttributes;
 
@@ -100,6 +97,18 @@ const Article = ({ type }: ArticleProps): ReactElement => {
 
   return (
     <div className="flex flex-col items-center gap-5 p-6 text-center m-auto justify-center text-xl mb-24 bg-slate-200 text-ldfGrey md:w-3/5">
+      <Helmet>
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={coverImg} />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="600" />
+        <meta property="og:type" content={article} />
+        <meta
+          property="article:author"
+          content={attributes.author.data.attributes.name}
+        />
+      </Helmet>
       <div className="flex mb-4 flex-col md:flex-row">
         <img
           className="m-auto md:m-0 max-h-80 content-box-small"
