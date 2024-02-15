@@ -97,18 +97,6 @@ const Article = ({ type }: ArticleProps): ReactElement => {
 
   return (
     <div className="flex flex-col items-center gap-5 p-6 text-center m-auto justify-center text-xl mb-24 bg-slate-200 text-ldfGrey md:w-3/5">
-      <Helmet>
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={coverImg} />
-        <meta property="og:image:width" content="400" />
-        <meta property="og:image:height" content="600" />
-        <meta property="og:type" content={article} />
-        <meta
-          property="article:author"
-          content={attributes.author.data.attributes.name}
-        />
-      </Helmet>
       <div className="flex mb-4 flex-col md:flex-row">
         <img
           className="m-auto md:m-0 max-h-80 content-box-small"
@@ -139,7 +127,21 @@ const Article = ({ type }: ArticleProps): ReactElement => {
       </div>
 
       <div className="whitespace-pre-line text-left text-base">
-        <Markdown>{article}</Markdown>
+        <article>
+          <Helmet>
+            <meta property="og:title" content={title} />
+            <meta property="og:description" content={description} />
+            <meta property="og:image" content={coverImg} />
+            <meta property="og:image:width" content="400" />
+            <meta property="og:image:height" content="600" />
+            <meta property="og:type" content={article} />
+            <meta
+              property="article:author"
+              content={attributes.author.data.attributes.name}
+            />
+          </Helmet>
+          <Markdown>{article}</Markdown>
+        </article>
       </div>
       <div className="font-titles mt-8 flex gap-3 items-center">
         <p>
