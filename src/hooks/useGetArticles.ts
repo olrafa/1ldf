@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { api } from "../constants/api";
 import { ArtResponse, ArticleCategory } from "../constants/types";
 
-type ArticleListReturn = {
+export type ArticleListReturn = {
   id: number;
   attributes: {
     description: string;

@@ -11,7 +11,7 @@ const EpisodeCard = ({ guest, cover }: EpisodeCardProps): ReactElement => {
 
   return (
     <a
-      className={`my-2 md:mx-2 p-5 cursor-pointer text-left text-xl md:text-2xl bg-white text-ldfGrey content-box-small ${
+      className={`my-2 mx-3 p-5 cursor-pointer text-left text-xl md:text-2xl bg-white text-ldfGrey content-box-small ${
         !cover && "md:w-3/5"
       }`}
       href={`/episodios/${epNumber}`}
