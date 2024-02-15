@@ -11,6 +11,9 @@ import Experience from "./components/experience";
 import Article from "./components/article";
 import ArticleList from "./components/list/ArticleList";
 import Footer from "./components/bars/Footer";
+import { inject } from "@vercel/analytics";
+
+inject();
 
 function App() {
   const queryClient = new QueryClient();
@@ -26,7 +29,10 @@ function App() {
         <Route path="/experiencia" element={<Experience />} />
         <Route path="/maisumlivro" element={<ArticleList category="book" />} />
         <Route path="/maisumlivro/:id" element={<Article type="book" />} />
-        <Route path="/maisumdisco" element={<ArticleList category="record" />} />
+        <Route
+          path="/maisumdisco"
+          element={<ArticleList category="record" />}
+        />
         <Route path="/maisumdisco/:id" element={<Article type="record" />} />
         <Route path="/maisumfilme" element={<ArticleList category="film" />} />
         <Route path="/maisumfilme/:id" element={<Article type="film" />} />
