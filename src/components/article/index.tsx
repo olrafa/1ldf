@@ -102,7 +102,7 @@ const Article = ({ type }: ArticleProps): ReactElement => {
     <div className="flex flex-col items-center gap-5 p-6 text-center justify-center text-xl mb-16">
       <div className="flex md:w-3/5 mb-4 flex-col md:flex-row">
         <img
-          className="m-auto md:m-0 max-h-80 w-fit content-box-small"
+          className="m-auto md:m-0 max-h-80 content-box-small"
           src={coverImg}
         />
         <div className="md:ml-12 mt-8 md:mt-0 text-left">
