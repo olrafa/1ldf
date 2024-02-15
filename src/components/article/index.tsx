@@ -10,7 +10,7 @@ import Markdown from "react-markdown";
 import { faAmazon } from "@fortawesome/free-brands-svg-icons";
 import { getLinkString } from "./util";
 import { CATEGORY_ICONS } from "../../constants/util";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 type ArticleProps = {
   type: ArticleCategory;
