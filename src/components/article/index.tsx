@@ -128,18 +128,6 @@ const Article = ({ type }: ArticleProps): ReactElement => {
 
       <div className="whitespace-pre-line text-left text-base">
         <article>
-          <Helmet>
-            <meta property="og:title" content={title} />
-            <meta property="og:description" content={description} />
-            <meta property="og:image" content={coverImg} />
-            <meta property="og:image:width" content="400" />
-            <meta property="og:image:height" content="600" />
-            <meta property="og:type" content={article} />
-            <meta
-              property="article:author"
-              content={attributes.author.data.attributes.name}
-            />
-          </Helmet>
           <Markdown>{article}</Markdown>
         </article>
       </div>
@@ -207,6 +195,18 @@ const Article = ({ type }: ArticleProps): ReactElement => {
         </a>
         <div className="mt-4">{oneFilmComment}</div>
       </div>
+      <Helmet>
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={coverImg} />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="600" />
+        <meta property="og:type" content={article} />
+        <meta
+          property="article:author"
+          content={attributes.author.data.attributes.name}
+        />
+      </Helmet>
     </div>
   );
 };
