@@ -99,8 +99,8 @@ const Article = ({ type }: ArticleProps): ReactElement => {
   } = filmAttributes;
 
   return (
-    <div className="flex flex-col items-center gap-5 p-6 text-center justify-center text-xl mb-24">
-      <div className="flex md:w-3/5 mb-4 flex-col md:flex-row">
+    <div className="flex flex-col items-center gap-5 p-6 text-center m-auto justify-center text-xl mb-24 bg-slate-200 text-ldfGrey md:w-3/5">
+      <div className="flex mb-4 flex-col md:flex-row">
         <img
           className="m-auto md:m-0 max-h-80 content-box-small"
           src={coverImg}
@@ -121,7 +121,7 @@ const Article = ({ type }: ArticleProps): ReactElement => {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm p-2 items-center w-fit flex flex-row gap-2 bg-slate-50 mt-4"
+            className="text-sm p-2 items-center w-fit flex flex-row gap-2 bg-slate-50 mt-4 border border-ldfGreen"
           >
             {type === "book" && <FontAwesomeIcon icon={faAmazon} />}
             <span>{getLinkString(type)}</span>
@@ -129,7 +129,7 @@ const Article = ({ type }: ArticleProps): ReactElement => {
         </div>
       </div>
 
-      <div className="md:w-3/5 whitespace-pre-line text-left text-base">
+      <div className="whitespace-pre-line text-left text-base">
         <Markdown>{article}</Markdown>
       </div>
       <div className="font-titles mt-8 flex gap-3 items-center">
@@ -139,12 +139,12 @@ const Article = ({ type }: ArticleProps): ReactElement => {
         </p>
         <FontAwesomeIcon icon={faArrowDown} />
       </div>
-      <div className="text-left md:w-3/5 text-base">
+      <div className="text-left text-base">
         <a
           href={bookLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-slate-50 items-center flex flex-row justify-between p-2 border-b hover:bg-slate-700 hover:text-slate-100 border-b-gray-600"
+          className="text-slate-700 items-center flex flex-row justify-between p-2 border-b hover:bg-slate-700 hover:text-slate-100 border-b-gray-600"
         >
           <div className="font-bold text-left">
             {bookTitle}
@@ -158,12 +158,12 @@ const Article = ({ type }: ArticleProps): ReactElement => {
         </a>
         <div className="mt-4">{oneBookComment}</div>
       </div>
-      <div className="text-left md:w-3/5 text-base">
+      <div className="text-left text-base">
         <a
           href={recordLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-slate-50 items-center flex flex-row justify-between p-2 border-b hover:bg-slate-700 hover:text-slate-100 border-b-gray-600"
+          className="text-slate-700 items-center flex flex-row justify-between p-2 border-b hover:bg-slate-700 hover:text-slate-100 border-b-gray-600"
         >
           <div className="font-bold text-left">
             {recordTitle}
@@ -177,12 +177,12 @@ const Article = ({ type }: ArticleProps): ReactElement => {
         </a>
         <div className="mt-4">{oneRecordComment}</div>
       </div>
-      <div className="text-left md:w-3/5 text-base">
+      <div className="text-left text-base">
         <a
           href={filmLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-slate-50 items-center flex flex-row justify-between p-2 border-b hover:bg-slate-700 hover:text-slate-100 border-b-gray-600"
+          className="text-slate-700 items-center flex flex-row justify-between p-2 border-b hover:bg-slate-700 hover:text-slate-100 border-b-gray-600"
         >
           <div className="font-bold text-left">
             {filmTitle}
