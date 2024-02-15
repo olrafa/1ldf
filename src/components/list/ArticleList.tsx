@@ -24,7 +24,7 @@ const ArticleList = ({ category }: ArticleListCategoryProps): ReactElement => {
   }));
 
   return (
-    <div className="flex flex-col items-center gap-5 p-6 text-center justify-center text-xl mb-12">
+    <div className="flex flex-col items-center gap-5 p-6 text-center justify-center text-xl mb-24">
       <div className="font-titles text-6xl capitalize">{`+1 ${CATEGORY_TRANSLATIONS[category]}`}</div>
       {articleData.map(({ id, attributes }) => (
         <ArticleCard

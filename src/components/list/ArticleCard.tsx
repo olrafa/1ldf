@@ -21,7 +21,7 @@ const ArticleCard = ({
 
   return (
     <a
-      className="my-4 md:mx-2 mx-4 p-5 cursor-pointer text-left text-xl md:text-2xl bg-white text-ldfGrey content-box-small md:w-3/5"
+      className="my-y md:mx-2 p-5 cursor-pointer text-left text-xl md:text-2xl bg-white text-ldfGrey content-box-small md:w-3/5"
       href={`/maisum${CATEGORY_TRANSLATIONS[category]}/${id}`}
       rel="noopener noreferrer"
     >

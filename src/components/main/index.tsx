@@ -16,7 +16,7 @@ const Main = (): ReactElement => {
   const { attributes } = latestGuest;
 
   return (
-    <div className="md:mt-4 mb-4 flex flex-col mx-auto md:w-2/3">
+    <div className="md:mt-4 mb-24 flex flex-col mx-auto md:w-2/3">
       <About />
       {latestGuest && <EpisodeCard guest={attributes} cover={true} />}
     </div>

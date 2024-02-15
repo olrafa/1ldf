@@ -14,7 +14,7 @@ const TeamMemberCard = ({ teamMember }: TeamMemberProps): ReactElement => {
 
   return (
     <div
-      className="my-4 md:mx-2 mx-4 p-5 text-left text-xl md:text-2xl bg-white text-ldfGrey content-box-small 
+      className="my-2 md:mx-2 p-5 text-left text-xl md:text-2xl bg-white text-ldfGrey content-box-small 
          md:w-3/5"
     >
       <div className="flex flex-col gap-5 md:flex-row text-left items-center justify-around">
