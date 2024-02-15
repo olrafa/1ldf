@@ -18,7 +18,7 @@ export const CATEGORY_ICONS: { [key: string]: IconProp } = {
   video: faYoutube,
   series: faTv,
   print: faNewspaper,
-  podcast: faMicrophone
+  podcast: faMicrophone,
 };
 
 export const CATEGORY_TRANSLATIONS: { [key: string]: string } = {
@@ -26,3 +26,6 @@ export const CATEGORY_TRANSLATIONS: { [key: string]: string } = {
   record: "disco",
   film: "filme",
 };
+
+export const toTitleCase = (str: string) =>
+  str.toLowerCase().replace(/(?:^|\s)\w/g, (match) => match.toUpperCase());

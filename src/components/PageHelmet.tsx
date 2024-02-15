@@ -37,7 +37,7 @@ const PageHelmet = ({
     <meta property="og:image:type" content="image/jpg" />
     <meta property="og:image:width" content="400" />
     <meta property="og:image:height" content="400" />
-    <meta property="article:author" content={author || "1LDF"} />
+    {author && <meta property="article:author" content={author} />}
     <title>{title ? `${title} | ${siteTitle}` : siteTitle}</title>
   </Helmet>
 );
