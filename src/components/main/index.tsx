@@ -35,6 +35,7 @@ const Main = (): ReactElement => {
       <div className="md:mt-4 mb-24 flex flex-col mx-auto md:w-2/3">
         <About />
         {latestGuest && <EpisodeCard guest={attributes} cover={true} />}
+        <div className="font-titles text-3xl justify-center mx-4 flex mt-12">Descubra mais dicas da nossa equipe</div>
         {latestBook && (
           <ArticleCard category="book" article={latestBook} cover={true} />
         )}
