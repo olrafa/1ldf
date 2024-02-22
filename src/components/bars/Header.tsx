@@ -11,9 +11,8 @@ import { faBars, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const ButtonsList = () => (
   <>
-    <a href="/" className="text-ldfGrey">
-      HOME
-    </a>
+    <a href="/">HOME</a>
+    <a href="/episodios">PODCAST</a>
     <a href="/experiencia">A EXPERIÊNCIA</a>
     <a href="/maisumlivro">+1 LIVRO</a>
     <a href="/maisumdisco">+1 DISCO</a>
