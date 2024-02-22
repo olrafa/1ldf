@@ -18,11 +18,16 @@
   position: relative;
 }
 
+.exp a {
+  color: #52b199
+}
+
 a {
   font-weight: 500;
   color: #312726;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #0077ad;
 }
