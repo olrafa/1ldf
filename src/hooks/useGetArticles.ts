@@ -21,7 +21,7 @@ export type ArticleListReturn = {
 const getArticles = async (
   type: ArticleCategory
 ): Promise<ArticleListReturn[]> => {
-  const result = await api.get(`${type}s?populate=reference&populate=author`);
+  const result = await api.get(`${type}s?populate=reference&populate=author&sort=id:desc`);
 
   return result.data.data;
 };
