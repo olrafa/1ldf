@@ -63,7 +63,6 @@ const Episode = (): ReactElement => {
           <span>Obras mencionadas no episódio</span>
           <FontAwesomeIcon icon={faArrowDown} />
         </div>
-        <div className="font-titles text-5xl mt-4">As escolhas</div>
         <div className="flex flex-col md:flex-row md:w-4/5 justify-between">
           {bookData && (
             <PieceCard

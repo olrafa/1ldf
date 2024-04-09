@@ -44,6 +44,11 @@ export type ArtResponseArray = {
   data: ArtObject[];
 };
 
+type ExtraContent = {
+  link: string;
+  description: string;
+};
+
 export type Guest = {
   epNumber: number;
   name: string;
@@ -54,6 +59,7 @@ export type Guest = {
   record?: ArtResponse;
   film?: ArtResponse;
   references?: ArtResponseArray;
+  extras?: ExtraContent[];
 };
 
 export type ArticleCategory = "book" | "record" | "film";

@@ -26,7 +26,7 @@ const Header = (): ReactElement => {
 
   return (
     <>
-      <div className="w-full flex flex-row bg-ldfGreen text-ldfGrey gap-4 items-center p-2 text-lg md:gap-8 justify-between top-0 h-10">
+      <div className="w-full flex flex-row bg-ldfGreen text-ldfGrey gap-4 items-center p-2 text-sm md:gap-8 justify-between top-0 h-10">
         <div className={`gap-8 md:flex hidden flex-column md:flex-row`}>
           <ButtonsList />
         </div>
@@ -35,7 +35,7 @@ const Header = (): ReactElement => {
           className="md:hidden"
           onClick={() => setIsMenuOpen((_open) => !_open)}
         />
-        <div className="gap-12 flex">
+        <div className="gap-12 flex text-lg">
           <a href={LINKS.email} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faEnvelope} />
           </a>
