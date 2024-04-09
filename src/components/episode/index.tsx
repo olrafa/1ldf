@@ -40,15 +40,9 @@ const Episode = (): ReactElement => {
 
   const embedLink = youtubeLink.replace("watch?v=", "embed/");
 
-  const {
-    data: { attributes: bookData },
-  } = book;
-  const {
-    data: { attributes: recordData },
-  } = record;
-  const {
-    data: { attributes: filmData },
-  } = film;
+  const bookData = book?.data?.attributes;
+  const recordData = record?.data?.attributes;
+  const filmData = film?.data?.attributes;
 
   return (
     <div>
@@ -71,32 +65,38 @@ const Episode = (): ReactElement => {
         </div>
         <div className="font-titles text-5xl mt-4">As escolhas</div>
         <div className="flex flex-col md:flex-row md:w-4/5 justify-between">
-          <PieceCard
-            type="Livro"
-            title={bookData.title}
-            author={bookData.creator}
-            year={bookData.year}
-            imgSrc={bookData.coverImg}
-            amazonLink={bookData.link}
-          />
-          <PieceCard
-            type="Disco"
-            title={recordData.title}
-            author={recordData.creator}
-            year={recordData.year}
-            imgSrc={recordData.coverImg}
-            songWhip={recordData.link}
-          />
-          <PieceCard
-            type="Filme"
-            title={filmData.title}
-            author={filmData.creator}
-            year={filmData.year}
-            imgSrc={filmData.coverImg}
-            justWatch={filmData.link}
-          />
+          {bookData && (
+            <PieceCard
+              type="Livro"
+              title={bookData.title}
+              author={bookData.creator}
+              year={bookData.year}
+              imgSrc={bookData.coverImg}
+              amazonLink={bookData.link}
+            />
+          )}
+          {recordData && (
+            <PieceCard
+              type="Disco"
+              title={recordData.title}
+              author={recordData.creator}
+              year={recordData.year}
+              imgSrc={recordData.coverImg}
+              songWhip={recordData.link}
+            />
+          )}
+          {filmData && (
+            <PieceCard
+              type="Filme"
+              title={filmData.title}
+              author={filmData.creator}
+              year={filmData.year}
+              imgSrc={filmData.coverImg}
+              justWatch={filmData.link}
+            />
+          )}
         </div>
-        <References guestRefs={references} />
+        {references && <References guestRefs={references} />}
       </div>
     </div>
   );

@@ -50,10 +50,10 @@ export type Guest = {
   description: string;
   youtubeLink: string;
   imageLink: string;
-  book: ArtResponse;
-  record: ArtResponse;
-  film: ArtResponse;
-  references: ArtResponseArray;
+  book?: ArtResponse;
+  record?: ArtResponse;
+  film?: ArtResponse;
+  references?: ArtResponseArray;
 };
 
 export type ArticleCategory = "book" | "record" | "film";
