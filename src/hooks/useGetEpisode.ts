@@ -9,7 +9,7 @@ type GuestsReturn = {
 
 const getEpisode = async (epNumber: number): Promise<GuestsReturn> => {
   const result = await api.get(
-    `convidados/${epNumber}?populate=book&populate=film&populate=record&populate=references`
+    `convidados/${epNumber}?populate=book&populate=film&populate=record&populate=references&populate=extras`
   );
 
   return result.data.data;

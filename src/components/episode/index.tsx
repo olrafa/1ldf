@@ -8,6 +8,7 @@ import useGetEpisode from "../../hooks/useGetEpisode";
 import Loader from "../loader";
 import EpisodeNotFound from "./EpisodeNotFound";
 import PageHelmet from "../PageHelmet";
+import Extras from "./Extras";
 
 const Episode = (): ReactElement => {
   const { pathname } = useLocation();
@@ -36,6 +37,7 @@ const Episode = (): ReactElement => {
     film,
     references,
     imageLink,
+    extras,
   } = guest;
 
   const embedLink = youtubeLink.replace("watch?v=", "embed/");
@@ -43,6 +45,10 @@ const Episode = (): ReactElement => {
   const bookData = book?.data?.attributes;
   const recordData = record?.data?.attributes;
   const filmData = film?.data?.attributes;
+
+  const extraContent = extras?.data;
+
+  console.log(extraContent);
 
   return (
     <div>
@@ -95,6 +101,7 @@ const Episode = (): ReactElement => {
             />
           )}
         </div>
+        {!!extraContent?.length && <Extras extras={extraContent} />}
         {references && <References guestRefs={references} />}
       </div>
     </div>
