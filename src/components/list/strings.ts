@@ -1,2 +1,2 @@
 export const LIST_DESCRIPTION =
-  "O que os livros, discos e filmes favoritos dos nossos convidados dizem sobre suas personalidades? Descubra com a gente!";
+  "As obras que marcaram a sua vida e a dos nossos entrevistados, em conversas com diferentes formatos.";
