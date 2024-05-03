@@ -20,10 +20,10 @@ const Extras = ({ extras }: ExtrasProps) => (
     {extras.map((extra) => (
       <div key={extra.id}>
         <div className="m-4">{extra.attributes.description}</div>
-        <div className="aspect-video w-full">
+        <div className="aspect-video w-full flex justify-center">
           <iframe
             title={extra.attributes.description}
-            className="w-full h-full content-box-small rounded-xl"
+            className="w-10/12 h-full content-box-small rounded-xl"
             src={getEmbedSrc(extra.attributes.url)}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share: fullscreen"
             loading="lazy"
