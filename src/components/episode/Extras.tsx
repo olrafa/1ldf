@@ -1,9 +1,14 @@
 import { ExtraListItem } from "../../constants/types";
 
-const getEmbedSrc = (url: string) =>
-  url.includes("spotify")
-    ? url.replace("/playlist", "/embed/playlist")
-    : url.replace("watch?v=", "embed/");
+const getEmbedSrc = (url: string) => {
+  if (url.includes("spotify")) {
+    return url.replace("/playlist", "/embed/playlist");
+  }
+  if (url.includes("vimeo")) {
+    return url.replace("vimeo.com", "player.vimeo.com/video");
+  }
+  return url.replace("watch?v=", "embed/");
+};
 
 type ExtrasProps = {
   extras: ExtraListItem[];
@@ -17,6 +22,7 @@ const Extras = ({ extras }: ExtrasProps) => (
         <div className="m-4">{extra.attributes.description}</div>
         <div className="aspect-video w-full">
           <iframe
+            title={extra.attributes.description}
             className="w-full h-full content-box-small rounded-xl"
             src={getEmbedSrc(extra.attributes.url)}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share: fullscreen"
