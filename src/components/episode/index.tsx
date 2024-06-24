@@ -48,8 +48,6 @@ const Episode = (): ReactElement => {
 
   const extraContent = extras?.data;
 
-  console.log(extraContent);
-
   return (
     <div>
       <PageHelmet title={name} description={description} imgSrc={imageLink} />
@@ -58,6 +56,7 @@ const Episode = (): ReactElement => {
         <div className="md:w-3/5">{description}</div>
         <div className="aspect-video w-full md:w-3/5">
           <iframe
+          title={name}
             className="w-full h-full content-box"
             src={embedLink}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share: fullscreen"
