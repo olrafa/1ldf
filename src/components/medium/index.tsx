@@ -20,7 +20,7 @@ const MediumComponent = () => {
   const latestItems = items.slice(0, 3);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center p-3">
       <div className="font-titles text-3xl mx-4 justify-center flex mt-12 mb-10 bg-white text-ldfGrey content-box-small w-fit p-4">
         Blog
       </div>
@@ -31,10 +31,12 @@ const MediumComponent = () => {
             href={item.guid}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-5 bg-white text-ldfGrey content-box-small w-fit p-4"
+            className="flex flex-col items-center  justify-between gap-5 bg-white min-h-80 2xl:h-96 text-ldfGrey content-box-small w-full lg:w-1/3 p-4"
           >
-            <img src={parseImageSrc(item.content)} className="w-72" />
-            <p className="font-titles text-2xl">{item.title}</p>
+            <div>
+              <img src={parseImageSrc(item.content)} className="w-full mb-4" />
+              <p className="font-titles text-xl">{item.title}</p>
+            </div>
             <p className="text-lg">
               {new Date(item.pubDate).toLocaleDateString("pt-BR", {
                 month: "long",
@@ -45,6 +47,14 @@ const MediumComponent = () => {
           </a>
         ))}
       </div>
+      <a
+        href="https://medium.com/@1livrodiscofilme"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-titles justify-center text-ldfGreen text-3xl flex mx-4"
+      >
+        Veja mais no Medium
+      </a>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import {
   faInstagram,
+  faMedium,
   faSpotify,
   faTiktok,
   faYoutube,
@@ -8,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ReactElement, useState } from "react";
 import { LINKS } from "../../constants/links";
 import { faBars, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import profile from "../../assets/profile.jpg";
 
 const ButtonsList = () => (
   <>
@@ -26,19 +28,21 @@ const Header = (): ReactElement => {
 
   return (
     <>
-      <div className="w-full flex flex-row bg-ldfGreen text-ldfGrey gap-4 items-center p-2 text-sm md:gap-8 justify-between top-0 h-10">
-        <div className={`gap-8 md:flex hidden flex-column md:flex-row`}>
+      <div className="w-full flex flex-row bg-ldfGreen text-ldfGrey gap-4 items-center p-2 text-base lg:gap-8 lg:pr-12 justify-between sticky top-0 h-20">
+        <div
+          className={`gap-8 lg:flex hidden flex-column items-center lg:flex-row`}
+        >
+          <img src={profile} height="48px" width="48px" />
           <ButtonsList />
         </div>
-        <FontAwesomeIcon
-          icon={faBars}
-          className="md:hidden"
-          onClick={() => setIsMenuOpen((_open) => !_open)}
-        />
-        <div className="gap-12 flex text-lg">
-          <a href={LINKS.email} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faEnvelope} />
-          </a>
+        <div className="lg:hidden flex flex-row items-center gap-4">
+          <img src={profile} height="48px" width="48px" />
+          <FontAwesomeIcon
+            icon={faBars}
+            onClick={() => setIsMenuOpen((_open) => !_open)}
+          />
+        </div>
+        <div className="lg:gap-12 gap-4 flex text-lg">
           <a href={LINKS.youTube} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faYoutube} />
           </a>
@@ -51,14 +55,20 @@ const Header = (): ReactElement => {
           <a href={LINKS.tikTok} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faTiktok} />
           </a>
+          <a href={LINKS.medium} target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faMedium} />
+          </a>
+          <a href={LINKS.email} target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faEnvelope} />
+          </a>
         </div>
       </div>
       {isMenuOpen && (
-        <div className="w-full md:hidden bg-ldfGreen flex flex-col top-full gap-2 p-1">
+        <div className="w-full lg:hidden bg-ldfGreen flex flex-col sticky top-20 gap-2 p-2">
           <ButtonsList />
         </div>
       )}
-      <div className="md:mt-4"></div>
+      <div className="lg:mt-4"></div>
     </>
   );
 };
