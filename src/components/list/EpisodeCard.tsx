@@ -8,7 +8,6 @@ type EpisodeCardProps = {
 
 const EpisodeCard = ({ guest, cover }: EpisodeCardProps): ReactElement => {
   const { description, imageLink, name, epNumber, date } = guest;
-  console.log(guest);
 
   return (
     <a

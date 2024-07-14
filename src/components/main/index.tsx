@@ -47,7 +47,7 @@ const Main = (): ReactElement => {
         >
           Veja a lista completa aqui
         </a>
-        {/* <MediumComponent /> */}
+        <MediumComponent />
         <div className="font-titles text-3xl mx-4 flex mt-12 mb-4 bg-white text-ldfGrey content-box-small w-fit p-4">
           Descubra mais dicas da nossa equipe
         </div>
