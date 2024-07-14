@@ -64,6 +64,7 @@ export type Guest = {
   film?: ArtResponse;
   references?: ArtResponseArray;
   extras?: ExtraContent;
+  date: string;
 };
 
 export type ArticleCategory = "book" | "record" | "film";

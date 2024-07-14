@@ -15,7 +15,7 @@ const ArticleCard = ({
   cover,
 }: ArticleCardProps): ReactElement => {
   const { id, attributes } = article;
-  const { description, reference } = attributes;
+  const { description, reference, publishedAt } = attributes;
   const {
     data: { attributes: refAttributes },
   } = reference;
@@ -41,6 +41,13 @@ const ArticleCard = ({
           </p>
           <p className="text-lg">{description}</p>
           <p className="text-base">Por {authorName}</p>
+          <p className="text-base">
+              {new Date(publishedAt).toLocaleDateString("pt-BR", {
+                month: "long",
+                day: "numeric",
+               // year: "numeric",
+              })}
+            </p>
         </div>
         <img src={coverImg} className="h-72" />
       </div>

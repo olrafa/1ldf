@@ -7,7 +7,8 @@ type EpisodeCardProps = {
 };
 
 const EpisodeCard = ({ guest, cover }: EpisodeCardProps): ReactElement => {
-  const { description, imageLink, name, epNumber } = guest;
+  const { description, imageLink, name, epNumber, date } = guest;
+  console.log(guest);
 
   return (
     <a
@@ -17,11 +18,17 @@ const EpisodeCard = ({ guest, cover }: EpisodeCardProps): ReactElement => {
       href={`/episodios/${epNumber}`}
       rel="noopener noreferrer"
     >
-      {cover && <p className="font-titles">Episódio mais recente</p>}
       <div className="flex flex-col gap-5 md:flex-row text-left items-center justify-around">
         <div className="mt-4 flex flex-col gap-5">
           <p className="font-titles text-4xl">{name}</p>
           <p className="text-lg">{description}</p>
+          <p className="text-base">
+              {new Date(date).toLocaleDateString("pt-BR", {
+                month: "long",
+                day: "numeric",
+               // year: "numeric",
+              })}
+            </p>
         </div>
         <img src={imageLink} className="w-72" />
       </div>
