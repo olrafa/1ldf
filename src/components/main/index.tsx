@@ -31,7 +31,7 @@ const Main = (): ReactElement => {
   return (
     <div>
       <PageHelmet />
-      <div className="md:mt-4 mb-24 flex flex-col mx-auto md:w-2/3">
+      <div className="md:mt-4 mb-24 flex flex-col items-center mx-auto md:w-2/3">
         <About />
         <div className="font-titles text-3xl mx-4 justify-center flex mt-12 mb-10 bg-white text-ldfGrey content-box-small w-fit p-4">
           Últimos episódios
