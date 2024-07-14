@@ -6,7 +6,7 @@ import Loader from "../loader";
 import useGetArticles from "../../hooks/useGetArticles";
 import ArticleCard from "../list/ArticleCard";
 import PageHelmet from "../PageHelmet";
-import MediumComponent from "../medium";
+// import MediumComponent from "../medium";
 
 const Main = (): ReactElement => {
   const { data: guests = [], isLoading } = useGetGuests();
