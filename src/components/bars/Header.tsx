@@ -1,6 +1,5 @@
 import {
   faInstagram,
-  faMedium,
   faSpotify,
   faTiktok,
   faYoutube,
@@ -15,6 +14,9 @@ const ButtonsList = () => (
   <>
     <a href="/">HOME</a>
     <a href="/episodios">PODCAST</a>
+    <a href={LINKS.medium} target="_blank" rel="noopener noreferrer">
+      BLOG
+    </a>
     <a href="/experiencia">A EXPERIÊNCIA</a>
     <a href="/maisumlivro">+1 LIVRO</a>
     <a href="/maisumdisco">+1 DISCO</a>
@@ -55,9 +57,7 @@ const Header = (): ReactElement => {
           <a href={LINKS.tikTok} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faTiktok} />
           </a>
-          <a href={LINKS.medium} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faMedium} />
-          </a>
+
           <a href={LINKS.email} target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faEnvelope} />
           </a>
