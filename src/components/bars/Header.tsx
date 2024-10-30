@@ -34,11 +34,11 @@ const Header = (): ReactElement => {
         <div
           className={`gap-8 lg:flex hidden flex-column items-center lg:flex-row`}
         >
-          <img src={profile} height="48px" width="48px" />
+          <img src={profile} height="48px" width="48px" loading="lazy"/>
           <ButtonsList />
         </div>
         <div className="lg:hidden flex flex-row items-center gap-4">
-          <img src={profile} height="48px" width="48px" />
+          <img src={profile} height="48px" width="48px" loading="lazy" />
           <FontAwesomeIcon
             icon={faBars}
             onClick={() => setIsMenuOpen((_open) => !_open)}

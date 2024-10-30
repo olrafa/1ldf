@@ -29,7 +29,7 @@ const EpisodeCard = ({ guest, cover }: EpisodeCardProps): ReactElement => {
               })}
             </p>
         </div>
-        <img src={imageLink} className="w-72" />
+        <img src={imageLink} className="w-72" loading="lazy"/>
       </div>
     </a>
   );

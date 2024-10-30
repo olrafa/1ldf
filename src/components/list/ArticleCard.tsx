@@ -49,7 +49,7 @@ const ArticleCard = ({
               })}
             </p>
         </div>
-        <img src={coverImg} className="h-72" />
+        <img src={coverImg} className="h-72" loading="lazy"/>
       </div>
     </a>
   );

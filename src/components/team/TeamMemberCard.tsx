@@ -33,7 +33,7 @@ const TeamMemberCard = ({ teamMember }: TeamMemberProps): ReactElement => {
             </a>
           )}
         </div>
-        <img src={imgLink} className="w-72 rounded" />
+        <img src={imgLink} className="w-72 rounded" loading="lazy"/>
       </div>
     </div>
   );

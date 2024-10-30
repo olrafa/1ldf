@@ -14,7 +14,7 @@ const About = (): ReactElement => {
 
   return (
     <div className="mt-4 mx-2 p-5 items-center text-left md:text-lg text-white md:flex-row flex-col flex gap-8 md:gap-12 whitespace-pre-line">
-      <img src={profile} />
+      <img src={profile} loading="lazy"/>
       <div>{description}</div>
     </div>
   );
