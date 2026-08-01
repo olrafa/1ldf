@@ -4,42 +4,47 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "dev": "netlify dev",
+    "build": "react-router build",
+    "serve": "netlify build && netlify serve",
+    "typecheck": "react-router typegen && tsc",
+    "test": "vitest run",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
     "@fortawesome/free-brands-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
-    "@tanstack/react-query": "^5.66.0",
-    "@tanstack/react-query-devtools": "^5.66.0",
-    "@vercel/analytics": "^1.5.0",
+    "@react-router/node": "^7.18.2",
     "axios": "^1.7.9",
     "font-awesome": "^4.7.0",
+    "isbot": "^5.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-markdown": "^9.0.3",
-    "react-router-dom": "^6.29.0"
+    "react-router": "^7.18.2"
   },
   "devDependencies": {
-    "@tanstack/eslint-plugin-query": "^5.66.1",
+    "@netlify/vite-plugin": "^2.12.9",
+    "@netlify/vite-plugin-react-router": "^3.1.1",
+    "@react-router/dev": "^7.18.2",
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "^20.17.19",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
-    "@vitejs/plugin-react-swc": "^3.8.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.1",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.19",
+    "jsdom": "^30.0.1",
     "postcss": "^8.5.2",
-    "react-helmet-async": "^2.0.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3",
-    "vite": "^5.4.14"
+    "vite": "^5.4.14",
+    "vitest": "^3.2.4"
   }
 }
