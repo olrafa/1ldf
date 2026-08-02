@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { Link } from "react-router";
 import { ArticleCategory } from "../../lib/types";
-import { CATEGORY_TRANSLATIONS, formatDate } from "../../lib/util";
+import { CATEGORY_TRANSLATIONS, coverAlt, formatDate } from "../../lib/util";
 import type { ArticleListReturn } from "../../data/articles.server";
 
 type ArticleCardProps = {
@@ -40,7 +40,12 @@ const ArticleCard = ({
           <p className="text-base">Por {authorName}</p>
           <p className="text-base">{formatDate(publishedAt)}</p>
         </div>
-        <img src={coverImg} className="h-72 rounded" loading="lazy" />
+        <img
+          src={coverImg}
+          className="h-72 rounded"
+          alt={coverAlt(title, creator)}
+          loading="lazy"
+        />
       </div>
     </Link>
   );

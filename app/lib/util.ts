@@ -37,3 +37,11 @@ export const formatDate = (date: string | Date) =>
     month: "long",
     year: "numeric",
   });
+
+export const coverAlt = (title?: string, creator?: string) => {
+  if (title && creator) return `Capa de ${title}, de ${creator}`;
+  if (title) return `Capa de ${title}`;
+  return "Capa da obra";
+};
+
+export const personAlt = (name: string) => `Foto de ${name}`;

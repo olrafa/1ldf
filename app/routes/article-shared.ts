@@ -20,7 +20,7 @@ export const articleMeta = ({ data: loaderData }: ArticleMetaArgs) => {
   const { title, coverImg, creator } = reference.data?.attributes ?? {};
 
   return [
-    ...buildMeta({ title, description, imgSrc: coverImg }),
+    ...buildMeta({ title, description, imgSrc: coverImg, type: "article" }),
     buildJsonLd({
       "@context": "https://schema.org",
       "@type": "CreativeWork",

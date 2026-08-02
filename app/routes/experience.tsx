@@ -24,6 +24,7 @@ export function meta({ data: loaderData }: Route.MetaArgs) {
     title: "A Experiência",
     description,
     imgSrc: imgLink,
+    type: "article",
   });
 }
 
@@ -43,6 +44,7 @@ export default function ExperienceRoute({
         <img
           src={imgLink}
           className="md:w-3/5 rounded content-box-small md:mb-4"
+          alt={title}
           loading="lazy"
         />
       </div>

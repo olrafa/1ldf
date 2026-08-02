@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 import { TeamMember } from "../../lib/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { personAlt } from "../../lib/util";
 
 type TeamMemberProps = {
   teamMember: TeamMember;
@@ -33,7 +34,12 @@ const TeamMemberCard = ({ teamMember }: TeamMemberProps): ReactElement => {
             </a>
           )}
         </div>
-        <img src={imgLink} className="w-72 rounded" loading="lazy"/>
+        <img
+          src={imgLink}
+          className="w-72 rounded"
+          alt={personAlt(name)}
+          loading="lazy"
+        />
       </div>
     </div>
   );

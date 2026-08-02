@@ -1,6 +1,7 @@
 import { faAmazon } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ReactElement } from "react";
+import { coverAlt } from "../../lib/util";
 
 type PieceCardProps = {
   type: "Livro" | "Disco" | "Filme";
@@ -26,7 +27,14 @@ const PieceCard = ({
   <div className="mb-2 w-full">
     <div className="font-titles text-4xl pt-4">{type}</div>
     <div className="flex flex-col items-center gap-5 justify-around py-4">
-      {imgSrc && <img className="max-h-80" src={imgSrc} loading="lazy"/>}
+      {imgSrc && (
+        <img
+          className="max-h-80"
+          src={imgSrc}
+          alt={coverAlt(title, author)}
+          loading="lazy"
+        />
+      )}
       <div>
         <div className="font-titles text-3xl">{title}</div>
         <div className="font-titles text-3xl">{author}</div>

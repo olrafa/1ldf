@@ -6,7 +6,7 @@ import type { ArticleReturn } from "../../data/articles.server";
 import Markdown from "react-markdown";
 import { faAmazon } from "@fortawesome/free-brands-svg-icons";
 import { getLinkString } from "./util";
-import { CATEGORY_ICONS } from "../../lib/util";
+import { CATEGORY_ICONS, coverAlt } from "../../lib/util";
 
 type ArticleViewProps = {
   article: ArticleReturn;
@@ -76,6 +76,8 @@ const ArticleView = ({ article, type }: ArticleViewProps): ReactElement => {
           <img
             className="m-auto md:m-0 max-h-80 content-box-small"
             src={coverImg}
+            alt={coverAlt(title, creator)}
+            loading="lazy"
           />
           <div className="md:ml-12 mt-8 md:mt-0 text-left">
             <div className="font-titles text-6xl">{title}</div>

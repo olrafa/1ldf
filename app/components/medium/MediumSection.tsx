@@ -26,7 +26,12 @@ const MediumSection = ({ items }: MediumSectionProps): ReactElement | null => {
             className="flex flex-col items-center  justify-between gap-5 bg-white min-h-80 2xl:h-96 text-ldfGrey content-box-small w-full lg:w-1/3 p-4"
           >
             <div>
-              <img src={item.imageSrc} className="w-full mb-4" loading="lazy" />
+              <img
+                src={item.imageSrc}
+                className="w-full mb-4"
+                alt={item.title}
+                loading="lazy"
+              />
               <p className="font-titles text-xl">{item.title}</p>
             </div>
             <p className="text-lg">{formatDate(item.pubDate)}</p>

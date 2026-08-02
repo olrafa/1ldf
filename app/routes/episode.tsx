@@ -31,7 +31,7 @@ export function meta({ data: loaderData }: Route.MetaArgs) {
   const { name, description, imageLink, date } = loaderData.episode.attributes;
 
   return [
-    ...buildMeta({ title: name, description, imgSrc: imageLink }),
+    ...buildMeta({ title: name, description, imgSrc: imageLink, type: "article" }),
     buildJsonLd({
       "@context": "https://schema.org",
       "@type": "PodcastEpisode",

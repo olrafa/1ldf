@@ -6,6 +6,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "react-router";
 import type { Route } from "./+types/root";
 import "./index.css";
@@ -13,34 +14,28 @@ import Header from "./components/bars/Header";
 import Footer from "./components/bars/Footer";
 import NavigationProgress from "./components/loader/NavigationProgress";
 import NotFound from "./components/notFound/NotFound";
-import { buildMeta } from "./lib/meta";
+import { buildMeta, SITE_URL } from "./lib/meta";
 
 export const links: Route.LinksFunction = () => [
-  { rel: "icon", type: "image/jpg", href: "/profile.jpg" },
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap",
-  },
+  { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
+  { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+  { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
+  { rel: "manifest", href: "/site.webmanifest" },
 ];
 
 export const meta: Route.MetaFunction = () => buildMeta({});
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const { pathname } = useLocation();
+  const canonicalUrl = `${SITE_URL}${pathname}`;
+
   return (
     <html lang="pt-BR">
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:url" content={canonicalUrl} />
         <Meta />
         <Links />
       </head>

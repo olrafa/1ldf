@@ -14,6 +14,16 @@ import profile from "../../assets/profile.jpg";
 const navLinkClass =
   "transition-colors duration-150 hover:text-white";
 
+const Logo = () => (
+  <img
+    src={profile}
+    height="48px"
+    width="48px"
+    alt="1 Livro, 1 Disco, 1 Filme"
+    loading="lazy"
+  />
+);
+
 const ButtonsList = () => (
   <>
     <Link className={navLinkClass} to="/">
@@ -62,11 +72,11 @@ const Header = (): ReactElement => {
         <div
           className={`gap-8 lg:flex hidden flex-column items-center lg:flex-row`}
         >
-          <img src={profile} height="48px" width="48px" loading="lazy"/>
+          <Logo />
           <ButtonsList />
         </div>
         <div className="lg:hidden flex flex-row items-center gap-4">
-          <img src={profile} height="48px" width="48px" loading="lazy" />
+          <Logo />
           <FontAwesomeIcon
             className="cursor-pointer transition-transform duration-150 hover:scale-110"
             icon={faBars}

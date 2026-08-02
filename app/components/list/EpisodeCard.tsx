@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { Link } from "react-router";
 import { Guest } from "../../lib/types";
-import { formatDate } from "../../lib/util";
+import { formatDate, personAlt } from "../../lib/util";
 
 type EpisodeCardProps = {
   guest: Guest;
@@ -24,7 +24,12 @@ const EpisodeCard = ({ guest, cover }: EpisodeCardProps): ReactElement => {
           <p className="text-lg">{description}</p>
           <p className="text-base">{formatDate(date)}</p>
         </div>
-        <img src={imageLink} className="w-72 rounded" loading="lazy" />
+        <img
+          src={imageLink}
+          className="w-72 rounded"
+          alt={personAlt(name)}
+          loading="lazy"
+        />
       </div>
     </Link>
   );
