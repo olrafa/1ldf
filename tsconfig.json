@@ -20,8 +20,14 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "types": ["node"]
+    "types": ["node", "vite/client", "@testing-library/jest-dom"],
+    "rootDirs": [".", "./.react-router/types"]
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "app/**/*",
+    "app/**/.server/**/*",
+    "app/**/.client/**/*",
+    ".react-router/types/**/*",
+    "vite.config.ts"
+  ]
 }
