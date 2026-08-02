@@ -84,4 +84,5 @@ export type TeamMember = {
   description: string;
   imgLink: string;
   socials: string | null;
+  active: boolean;
 };

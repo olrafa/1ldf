@@ -1,6 +1,7 @@
 import { ReactElement } from "react";
 import { Link } from "react-router";
 import { Guest } from "../../lib/types";
+import { formatDate } from "../../lib/util";
 
 type EpisodeCardProps = {
   guest: Guest;
@@ -21,16 +22,9 @@ const EpisodeCard = ({ guest, cover }: EpisodeCardProps): ReactElement => {
         <div className="mt-4 flex flex-col gap-5">
           <p className="font-titles text-4xl">{name}</p>
           <p className="text-lg">{description}</p>
-          <p className="text-base">
-              {new Date(date).toLocaleDateString("pt-BR", {
-                timeZone: "America/Sao_Paulo",
-                month: "long",
-                day: "numeric",
-               // year: "numeric",
-              })}
-            </p>
+          <p className="text-base">{formatDate(date)}</p>
         </div>
-        <img src={imageLink} className="w-72" loading="lazy"/>
+        <img src={imageLink} className="w-72 rounded" loading="lazy" />
       </div>
     </Link>
   );

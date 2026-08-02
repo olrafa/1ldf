@@ -8,7 +8,9 @@ export type TeamMemberReturn = {
 
 export const getTeamMembers = async (): Promise<TeamMemberReturn[]> => {
   try {
-    const result = await api.get("equipes?sort=id");
+    const result = await api.get(
+      "equipes?sort=id&filters[active][$eq]=true"
+    );
 
     return result.data.data ?? [];
   } catch (error) {

@@ -29,3 +29,11 @@ export const CATEGORY_TRANSLATIONS: { [key: string]: string } = {
 
 export const toTitleCase = (str: string) =>
   str.toLowerCase().replace(/(?:^|\s)\w/g, (match) => match.toUpperCase());
+
+export const formatDate = (date: string | Date) =>
+  new Date(date).toLocaleDateString("pt-BR", {
+    timeZone: "America/Sao_Paulo",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });

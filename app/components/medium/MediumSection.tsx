@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
 import type { MediumItem } from "../../data/medium.server";
+import { formatDate } from "../../lib/util";
 
 type MediumSectionProps = {
   items: MediumItem[];
@@ -28,14 +29,7 @@ const MediumSection = ({ items }: MediumSectionProps): ReactElement | null => {
               <img src={item.imageSrc} className="w-full mb-4" loading="lazy" />
               <p className="font-titles text-xl">{item.title}</p>
             </div>
-            <p className="text-lg">
-              {new Date(item.pubDate).toLocaleDateString("pt-BR", {
-                timeZone: "America/Sao_Paulo",
-                month: "long",
-                day: "numeric",
-                // year: "numeric",
-              })}
-            </p>
+            <p className="text-lg">{formatDate(item.pubDate)}</p>
           </a>
         ))}
       </div>

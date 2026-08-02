@@ -1,7 +1,7 @@
 import { ReactElement } from "react";
 import { Link } from "react-router";
 import { ArticleCategory } from "../../lib/types";
-import { CATEGORY_TRANSLATIONS } from "../../lib/util";
+import { CATEGORY_TRANSLATIONS, formatDate } from "../../lib/util";
 import type { ArticleListReturn } from "../../data/articles.server";
 
 type ArticleCardProps = {
@@ -38,16 +38,9 @@ const ArticleCard = ({
           </p>
           <p className="text-lg">{description}</p>
           <p className="text-base">Por {authorName}</p>
-          <p className="text-base">
-              {new Date(publishedAt).toLocaleDateString("pt-BR", {
-                timeZone: "America/Sao_Paulo",
-                month: "long",
-                day: "numeric",
-               // year: "numeric",
-              })}
-            </p>
+          <p className="text-base">{formatDate(publishedAt)}</p>
         </div>
-        <img src={coverImg} className="h-72" loading="lazy"/>
+        <img src={coverImg} className="h-72 rounded" loading="lazy" />
       </div>
     </Link>
   );

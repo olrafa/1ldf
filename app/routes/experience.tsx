@@ -42,7 +42,7 @@ export default function ExperienceRoute({
         </div>
         <img
           src={imgLink}
-          className="md:w-3/5 content-box-small md:mb-4"
+          className="md:w-3/5 rounded content-box-small md:mb-4"
           loading="lazy"
         />
       </div>
