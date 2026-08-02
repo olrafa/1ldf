@@ -1,5 +1,6 @@
 import {
   isRouteErrorResponse,
+  Link,
   Links,
   Meta,
   Outlet,
@@ -12,7 +13,7 @@ import Header from "./components/bars/Header";
 import Footer from "./components/bars/Footer";
 import NavigationProgress from "./components/loader/NavigationProgress";
 import NotFound from "./components/notFound/NotFound";
-import { buildJsonLd, buildMeta } from "./lib/meta";
+import { buildMeta } from "./lib/meta";
 
 export const links: Route.LinksFunction = () => [
   { rel: "icon", type: "image/jpg", href: "/profile.jpg" },
@@ -32,15 +33,7 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-export const meta: Route.MetaFunction = () => [
-  ...buildMeta({}),
-  buildJsonLd({
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "1 Livro, 1 Disco, 1 Filme",
-    url: "https://1livrodiscofilme.com.br",
-  }),
-];
+export const meta: Route.MetaFunction = () => buildMeta({});
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -79,9 +72,9 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   return (
     <div className="flex flex-col items-center gap-5 p-6 text-center justify-center text-xl mb-4">
       <div className="font-titles text-6xl">Algo deu errado</div>
-      <a href="/" className="content-box-small bg-slate-50 p-2">
+      <Link to="/" className="content-box-small bg-slate-50 p-2">
         Voltar à página inicial
-      </a>
+      </Link>
     </div>
   );
 }

@@ -12,8 +12,20 @@ type RawMediumItem = {
   content: string;
 };
 
-const extractImageSrc = (content: string) =>
-  content.match(/<img[^>]+src="([^"]+)"/)?.[1] ?? "";
+const decodeHtmlEntities = (value: string) =>
+  value
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">");
+
+const extractImageSrc = (content: string) => {
+  const match = content.match(/<img[^>]+src=("([^"]+)"|'([^']+)'|([^\s>]+))/);
+  const src = match?.[2] ?? match?.[3] ?? match?.[4] ?? "";
+
+  return decodeHtmlEntities(src);
+};
 
 export const getMediumPosts = async (): Promise<MediumItem[]> => {
   try {
@@ -22,7 +34,7 @@ export const getMediumPosts = async (): Promise<MediumItem[]> => {
       mediumRssFeed
     )}`;
 
-    const res = await fetch(rssToJsonApi);
+    const res = await fetch(rssToJsonApi, { signal: AbortSignal.timeout(5000) });
     const { items } = (await res.json()) as { items: RawMediumItem[] };
 
     return items.slice(0, 3).map((item) => ({

@@ -23,6 +23,7 @@ const EpisodeCard = ({ guest, cover }: EpisodeCardProps): ReactElement => {
           <p className="text-lg">{description}</p>
           <p className="text-base">
               {new Date(date).toLocaleDateString("pt-BR", {
+                timeZone: "America/Sao_Paulo",
                 month: "long",
                 day: "numeric",
                // year: "numeric",

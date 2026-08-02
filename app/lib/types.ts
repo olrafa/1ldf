@@ -37,7 +37,7 @@ type ArtObject = {
 };
 
 export type ArtResponse = {
-  data: ArtObject;
+  data: ArtObject | null;
 };
 
 export type ArtResponseArray = {

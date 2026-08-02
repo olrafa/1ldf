@@ -28,13 +28,12 @@ const ArticleView = ({ article, type }: ArticleViewProps): ReactElement => {
     oneFilmComment,
   } = attributes;
 
-  const {
-    data: { attributes: refAttributes },
-  } = reference;
+  const refAttributes = reference.data?.attributes;
 
-  const { title, creator, link, coverImg, year } = refAttributes;
+  const { title, creator, link, coverImg, year } = refAttributes ?? {};
 
   const publishDate = new Date(publishedAt).toLocaleString("pt-BR", {
+    timeZone: "America/Sao_Paulo",
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -43,38 +42,32 @@ const ArticleView = ({ article, type }: ArticleViewProps): ReactElement => {
     hour12: false,
   });
 
-  const {
-    data: { attributes: bookAttributes },
-  } = oneBook;
+  const bookAttributes = oneBook.data?.attributes;
 
   const {
     title: bookTitle,
     creator: bookCreator,
     link: bookLink,
     year: bookYear,
-  } = bookAttributes;
+  } = bookAttributes ?? {};
 
-  const {
-    data: { attributes: recordAttributes },
-  } = oneRecord;
+  const recordAttributes = oneRecord.data?.attributes;
 
   const {
     title: recordTitle,
     creator: recordCreator,
     link: recordLink,
     year: recordYear,
-  } = recordAttributes;
+  } = recordAttributes ?? {};
 
-  const {
-    data: { attributes: filmAttributes },
-  } = oneFilm;
+  const filmAttributes = oneFilm.data?.attributes;
 
   const {
     title: filmTitle,
     creator: filmCreator,
     link: filmLink,
     year: filmYear,
-  } = filmAttributes;
+  } = filmAttributes ?? {};
 
   return (
     <div>

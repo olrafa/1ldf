@@ -5,8 +5,8 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ReactElement, useState } from "react";
-import { Link } from "react-router";
+import { ReactElement, useEffect, useState } from "react";
+import { Link, useLocation } from "react-router";
 import { LINKS } from "../../lib/links";
 import { faBars, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import profile from "../../assets/profile.jpg";
@@ -28,6 +28,11 @@ const ButtonsList = () => (
 
 const Header = (): ReactElement => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   return (
     <>

@@ -35,7 +35,8 @@ export const getArticle = async (
     );
 
     return result.data.data ?? null;
-  } catch {
+  } catch (error) {
+    console.error(error);
     return null;
   }
 };
@@ -65,7 +66,8 @@ export const getArticles = async (
     );
 
     return result.data.data ?? [];
-  } catch {
+  } catch (error) {
+    console.error(error);
     return [];
   }
 };

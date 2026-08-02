@@ -11,7 +11,8 @@ export const getExperience = async (): Promise<Experience | null> => {
     const result = await api.get("experience");
 
     return result.data.data.attributes ?? null;
-  } catch {
+  } catch (error) {
+    console.error(error);
     return null;
   }
 };

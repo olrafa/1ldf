@@ -17,7 +17,7 @@ export const articleMeta = ({ data: loaderData }: ArticleMetaArgs) => {
   const {
     attributes: { description, reference, publishedAt },
   } = loaderData.article;
-  const { title, coverImg, creator } = reference.data.attributes;
+  const { title, coverImg, creator } = reference.data?.attributes ?? {};
 
   return [
     ...buildMeta({ title, description, imgSrc: coverImg }),

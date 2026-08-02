@@ -9,7 +9,8 @@ export const getMainPageDescription = async (): Promise<MainPageDescription | nu
     const result = await api.get("main-page-description");
 
     return result.data.data.attributes ?? null;
-  } catch {
+  } catch (error) {
+    console.error(error);
     return null;
   }
 };

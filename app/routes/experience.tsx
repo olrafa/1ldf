@@ -1,10 +1,16 @@
 import type { Route } from "./+types/experience";
+import { data, isRouteErrorResponse } from "react-router";
 import Markdown from "react-markdown";
 import { getExperience } from "../data/experience.server";
 import { buildMeta } from "../lib/meta";
+import NotFound from "../components/notFound/NotFound";
 
 export async function loader() {
   const experience = await getExperience();
+  if (!experience) {
+    throw data(null, { status: 404 });
+  }
+
   return { experience };
 }
 
@@ -25,11 +31,6 @@ export default function ExperienceRoute({
   loaderData,
 }: Route.ComponentProps) {
   const { experience } = loaderData;
-
-  if (!experience) {
-    return null;
-  }
-
   const { title, description, imgLink } = experience;
 
   return (
@@ -47,4 +48,12 @@ export default function ExperienceRoute({
       </div>
     </div>
   );
+}
+
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  if (isRouteErrorResponse(error) && error.status === 404) {
+    return <NotFound />;
+  }
+
+  throw error;
 }

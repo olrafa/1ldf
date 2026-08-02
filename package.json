@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "netlify dev",
-    "build": "react-router build",
+    "build": "npm run typecheck && react-router build",
     "serve": "netlify build && netlify serve",
     "typecheck": "react-router typegen && tsc",
     "test": "vitest run",

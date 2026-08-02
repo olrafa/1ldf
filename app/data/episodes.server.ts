@@ -15,7 +15,8 @@ export const getEpisode = async (
     );
 
     return result.data.data ?? null;
-  } catch {
+  } catch (error) {
+    console.error(error);
     return null;
   }
 };
@@ -25,7 +26,8 @@ export const getGuests = async (): Promise<GuestReturn[]> => {
     const result = await api.get("convidados?sort=epNumber:desc");
 
     return result.data.data ?? [];
-  } catch {
+  } catch (error) {
+    console.error(error);
     return [];
   }
 };

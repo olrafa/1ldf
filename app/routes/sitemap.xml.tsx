@@ -44,6 +44,9 @@ ${urls.map((url) => `  <url><loc>${url}</loc></url>`).join("\n")}
 </urlset>`;
 
   return new Response(xml, {
-    headers: { "Content-Type": "application/xml" },
+    headers: {
+      "Content-Type": "application/xml",
+      "Cache-Control": "public, max-age=3600, s-maxage=3600",
+    },
   });
 };

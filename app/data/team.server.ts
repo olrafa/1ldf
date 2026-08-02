@@ -11,7 +11,8 @@ export const getTeamMembers = async (): Promise<TeamMemberReturn[]> => {
     const result = await api.get("equipes?sort=id");
 
     return result.data.data ?? [];
-  } catch {
+  } catch (error) {
+    console.error(error);
     return [];
   }
 };
@@ -21,7 +22,8 @@ export const getTeamDescription = async (): Promise<string | null> => {
     const result = await api.get("description");
 
     return result.data.data.attributes.teamDescription ?? null;
-  } catch {
+  } catch (error) {
+    console.error(error);
     return null;
   }
 };

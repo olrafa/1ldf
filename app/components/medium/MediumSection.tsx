@@ -30,6 +30,7 @@ const MediumSection = ({ items }: MediumSectionProps): ReactElement | null => {
             </div>
             <p className="text-lg">
               {new Date(item.pubDate).toLocaleDateString("pt-BR", {
+                timeZone: "America/Sao_Paulo",
                 month: "long",
                 day: "numeric",
                 // year: "numeric",
