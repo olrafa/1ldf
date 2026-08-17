@@ -1,12 +1,18 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { getArticle, getArticles } from "./articles.server";
-import { api } from "../lib/api.server";
 
-vi.mock("../lib/api.server", () => ({
-  api: { get: vi.fn() },
+const { mockedGet } = vi.hoisted(() => ({ mockedGet: vi.fn() }));
+
+vi.mock("axios", () => ({
+  default: {
+    create: () => ({
+      get: mockedGet,
+      interceptors: { request: { use: vi.fn() } },
+    }),
+    isAxiosError: (error: unknown) =>
+      typeof error === "object" && error !== null && "isAxiosError" in error,
+  },
 }));
-
-const mockedGet = api.get as unknown as ReturnType<typeof vi.fn>;
 
 describe("getArticle", () => {
   beforeEach(() => {

@@ -1,4 +1,4 @@
-import { api } from "../lib/api.server";
+import { cachedGet } from "../lib/api.server";
 import { Guest } from "../lib/types";
 
 export type GuestReturn = {
@@ -10,11 +10,11 @@ export const getEpisode = async (
   epNumber: number
 ): Promise<GuestReturn | null> => {
   try {
-    const result = await api.get(
+    const result = await cachedGet<{ data: GuestReturn | null }>(
       `convidados/${epNumber}?populate=book&populate=film&populate=record&populate=references&populate=extras`
     );
 
-    return result.data.data ?? null;
+    return result.data ?? null;
   } catch (error) {
     console.error(error);
     return null;
@@ -23,9 +23,11 @@ export const getEpisode = async (
 
 export const getGuests = async (): Promise<GuestReturn[]> => {
   try {
-    const result = await api.get("convidados?sort=epNumber:desc");
+    const result = await cachedGet<{ data: GuestReturn[] }>(
+      "convidados?sort=epNumber:desc"
+    );
 
-    return result.data.data ?? [];
+    return result.data ?? [];
   } catch (error) {
     console.error(error);
     return [];

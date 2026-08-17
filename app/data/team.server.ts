@@ -1,4 +1,4 @@
-import { api } from "../lib/api.server";
+import { cachedGet } from "../lib/api.server";
 import { TeamMember } from "../lib/types";
 
 export type TeamMemberReturn = {
@@ -8,11 +8,11 @@ export type TeamMemberReturn = {
 
 export const getTeamMembers = async (): Promise<TeamMemberReturn[]> => {
   try {
-    const result = await api.get(
+    const result = await cachedGet<{ data: TeamMemberReturn[] }>(
       "equipes?sort=id&filters[active][$eq]=true"
     );
 
-    return result.data.data ?? [];
+    return result.data ?? [];
   } catch (error) {
     console.error(error);
     return [];
@@ -21,9 +21,11 @@ export const getTeamMembers = async (): Promise<TeamMemberReturn[]> => {
 
 export const getTeamDescription = async (): Promise<string | null> => {
   try {
-    const result = await api.get("description");
+    const result = await cachedGet<{
+      data: { attributes: { teamDescription: string } };
+    }>("description");
 
-    return result.data.data.attributes.teamDescription ?? null;
+    return result.data.attributes.teamDescription ?? null;
   } catch (error) {
     console.error(error);
     return null;
