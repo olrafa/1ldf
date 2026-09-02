@@ -1,41 +1,94 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { getArticle, getArticles } from "./articles.server";
 
-const { mockedGet } = vi.hoisted(() => ({ mockedGet: vi.fn() }));
+const { mockedQueryDb } = vi.hoisted(() => ({ mockedQueryDb: vi.fn() }));
 
-vi.mock("axios", () => ({
-  default: {
-    create: () => ({
-      get: mockedGet,
-      interceptors: { request: { use: vi.fn() } },
-    }),
-    isAxiosError: (error: unknown) =>
-      typeof error === "object" && error !== null && "isAxiosError" in error,
-  },
+vi.mock("../lib/db.server", () => ({
+  queryDb: mockedQueryDb,
+  toIso: (value: unknown) => value,
 }));
+
+import { getArticle, getArticles } from "./articles.server";
 
 describe("getArticle", () => {
   beforeEach(() => {
-    mockedGet.mockReset();
+    mockedQueryDb.mockReset();
   });
 
-  it("fetches with the expected populate query and returns the entity", async () => {
-    mockedGet.mockResolvedValueOnce({
-      data: { data: { id: 1, attributes: {} } },
-    });
+  it("queries the right table by id and shapes the result", async () => {
+    mockedQueryDb.mockResolvedValueOnce([
+      {
+        id: 1,
+        description: "desc",
+        article: "full article",
+        one_book_comment: null,
+        one_record_comment: null,
+        one_film_comment: null,
+        published_at: "2024-01-01T00:00:00.000Z",
+        updated_at: "2024-01-02T00:00:00.000Z",
+        author_name: "Jane Doe",
+        reference_id: 10,
+        reference_title: "Some Book",
+        reference_creator: "Some Author",
+        reference_year: 2020,
+        reference_cover_img: null,
+        reference_link: null,
+        reference_category: "book",
+        one_book_id: null,
+        one_record_id: null,
+        one_film_id: null,
+      },
+    ]);
 
     const result = await getArticle("book", 1);
 
-    expect(mockedGet).toHaveBeenCalledWith(
-      "books/1?populate=reference&populate=oneBook&populate=oneRecord&populate=oneFilm&populate=author"
+    expect(mockedQueryDb).toHaveBeenCalledWith(
+      "getArticle:book:1",
+      expect.stringContaining("FROM books a"),
+      [1]
     );
-    expect(result).toEqual({ id: 1, attributes: {} });
+    expect(result).toEqual({
+      id: 1,
+      attributes: {
+        description: "desc",
+        article: "full article",
+        reference: {
+          data: {
+            id: 10,
+            attributes: {
+              title: "Some Book",
+              creator: "Some Author",
+              year: 2020,
+              coverImg: undefined,
+              link: undefined,
+              category: "book",
+            },
+          },
+        },
+        oneBook: { data: null },
+        oneBookComment: null,
+        oneRecord: { data: null },
+        oneRecordComment: null,
+        oneFilm: { data: null },
+        oneFilmComment: null,
+        publishedAt: "2024-01-01T00:00:00.000Z",
+        updatedAt: "2024-01-02T00:00:00.000Z",
+        author: { data: { attributes: { name: "Jane Doe" } } },
+      },
+    });
   });
 
-  it("normalizes a failed request to null", async () => {
-    mockedGet.mockRejectedValueOnce(new Error("not found"));
+  it("returns null when no row is found", async () => {
+    mockedQueryDb.mockResolvedValueOnce([]);
 
     const result = await getArticle("book", 999);
+
+    expect(result).toBeNull();
+  });
+
+  it("normalizes a failed query to null", async () => {
+    mockedQueryDb.mockRejectedValueOnce(new Error("connection error"));
+
+    const result = await getArticle("book", 1);
 
     expect(result).toBeNull();
   });
@@ -43,21 +96,26 @@ describe("getArticle", () => {
 
 describe("getArticles", () => {
   beforeEach(() => {
-    mockedGet.mockReset();
+    mockedQueryDb.mockReset();
   });
 
-  it("fetches with the expected list query", async () => {
-    mockedGet.mockResolvedValueOnce({ data: { data: [] } });
+  it("queries the right table ordered by id desc", async () => {
+    mockedQueryDb.mockResolvedValueOnce([]);
 
     await getArticles("record");
 
-    expect(mockedGet).toHaveBeenCalledWith(
-      "records?populate=reference&populate=author&sort=id:desc"
+    expect(mockedQueryDb).toHaveBeenCalledWith(
+      "getArticles:record",
+      expect.stringContaining("FROM records a")
+    );
+    expect(mockedQueryDb).toHaveBeenCalledWith(
+      "getArticles:record",
+      expect.stringContaining("ORDER BY a.id DESC")
     );
   });
 
-  it("normalizes a failed request to an empty array", async () => {
-    mockedGet.mockRejectedValueOnce(new Error("network error"));
+  it("normalizes a failed query to an empty array", async () => {
+    mockedQueryDb.mockRejectedValueOnce(new Error("network error"));
 
     const result = await getArticles("film");
 
