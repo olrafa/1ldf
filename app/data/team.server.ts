@@ -1,4 +1,4 @@
-import { cachedGet } from "../lib/api.server";
+import { queryDb } from "../lib/db.server";
 import { TeamMember } from "../lib/types";
 
 export type TeamMemberReturn = {
@@ -8,11 +8,23 @@ export type TeamMemberReturn = {
 
 export const getTeamMembers = async (): Promise<TeamMemberReturn[]> => {
   try {
-    const result = await cachedGet<{ data: TeamMemberReturn[] }>(
-      "equipes?sort=id&filters[active][$eq]=true"
+    const rows = await queryDb<Record<string, unknown>>(
+      "getTeamMembers",
+      `SELECT id, name, description, img_link, socials, active FROM equipes
+       WHERE published_at IS NOT NULL AND active = true
+       ORDER BY id`
     );
 
-    return result.data ?? [];
+    return rows.map((row) => ({
+      id: row.id as number,
+      attributes: {
+        name: row.name as string,
+        description: row.description as string,
+        imgLink: row.img_link as string,
+        socials: (row.socials as string) ?? null,
+        active: row.active as boolean,
+      },
+    }));
   } catch (error) {
     console.error(error);
     return [];
@@ -21,11 +33,14 @@ export const getTeamMembers = async (): Promise<TeamMemberReturn[]> => {
 
 export const getTeamDescription = async (): Promise<string | null> => {
   try {
-    const result = await cachedGet<{
-      data: { attributes: { teamDescription: string } };
-    }>("description");
+    const rows = await queryDb<Record<string, unknown>>(
+      "getTeamDescription",
+      `SELECT team_description FROM descriptions
+       WHERE published_at IS NOT NULL LIMIT 1`
+    );
+    const row = rows[0];
 
-    return result.data.attributes.teamDescription ?? null;
+    return (row?.team_description as string) ?? null;
   } catch (error) {
     console.error(error);
     return null;
